@@ -47,7 +47,9 @@ app = create_app()
 
 @app.get("/")
 async def root():
-    return {"message": "Please use the /api/docs endpoint to view the API documentation"}
+    return {
+        "message": "Please use the /api/docs endpoint to view the API documentation"
+    }
 
 
 if __name__ == "__main__":

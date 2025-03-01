@@ -19,7 +19,11 @@ class Settings(BaseModel):
     API_PREFIX: str = "/api"
 
     # CORS configuration
-    CORS_ORIGINS: List[str] = ["http://localhost:3000"]
+    CORS_ORIGINS: List[str] = [
+        origin.strip()
+        for origin in os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+        if origin.strip()
+    ]
 
     # Yelp API configuration
     YELP_API_KEY: str = os.getenv("YELP_API_KEY", "")
