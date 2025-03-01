@@ -68,10 +68,10 @@ interface ApiResponse {
 const defaultSearchParams: SearchParams = {
 	location: "Toronto",
 	term: "",
-	radius: 10000,
+	radius: 2000,
 	price: "",
 	open_now: false,
-	sort_by: "best_match",
+	sort_by: "best_match" as const,
 	limit: 20,
 	offset: 0,
 	view_type: "list",

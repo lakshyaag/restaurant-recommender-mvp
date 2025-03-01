@@ -41,7 +41,7 @@ export interface SearchParams {
 	open_now?: boolean;
 	open_at?: number;
 	attributes?: string;
-	sort_by?: string;
+	sort_by?: "best_match" | "rating" | "review_count" | "distance";
 	limit?: number;
 	offset?: number;
 	reservation_date?: string;
@@ -96,22 +96,13 @@ const SearchForm = () => {
 	const [showReservation, setShowReservation] = useState(false);
 
 	// Get store values and actions
-	const { searchRestaurants, isLoading, error } = useRestaurantStore();
+	const { searchRestaurants, isLoading, error, searchParams } =
+		useRestaurantStore();
 
 	// Initialize react-hook-form
 	const form = useForm<SearchFormValues>({
 		resolver: zodResolver(searchFormSchema),
-		defaultValues: {
-			location: "Toronto",
-			term: "",
-			radius: 10000,
-			price: "",
-			open_now: false,
-			sort_by: "best_match",
-			limit: 20,
-			offset: 0,
-			view_type: "list",
-		},
+		defaultValues: searchParams,
 	});
 
 	// Function to handle price toggle
@@ -189,6 +180,36 @@ const SearchForm = () => {
 						/>
 					</div>
 
+					<FormField
+						control={form.control}
+						name="radius"
+						render={({ field }) => (
+							<FormItem className="space-y-2">
+								<div className="flex justify-between">
+									<FormLabel>
+										Search Radius: {(field.value / 1000).toFixed(1)} km
+									</FormLabel>
+								</div>
+								<FormControl>
+									<Controller
+										control={form.control}
+										name="radius"
+										render={({ field: { value, onChange } }) => (
+											<Slider
+												value={[value]}
+												min={1000}
+												max={40000}
+												step={1000}
+												onValueChange={(vals) => onChange(vals[0])}
+											/>
+										)}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
 					<div className="space-y-2">
 						<FormLabel>Price Range</FormLabel>
 						<div className="flex gap-2">
@@ -245,36 +266,6 @@ const SearchForm = () => {
 
 					{showAdvanced && (
 						<div className="space-y-4 pt-2 border-t border-border/30">
-							<FormField
-								control={form.control}
-								name="radius"
-								render={({ field }) => (
-									<FormItem className="space-y-2">
-										<div className="flex justify-between">
-											<FormLabel>
-												Search Radius: {(field.value / 1000).toFixed(1)} km
-											</FormLabel>
-										</div>
-										<FormControl>
-											<Controller
-												control={form.control}
-												name="radius"
-												render={({ field: { value, onChange } }) => (
-													<Slider
-														value={[value]}
-														min={1000}
-														max={40000}
-														step={1000}
-														onValueChange={(vals) => onChange(vals[0])}
-													/>
-												)}
-											/>
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-
 							<FormField
 								control={form.control}
 								name="sort_by"

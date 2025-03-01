@@ -67,26 +67,26 @@ class YelpService:
 
         try:
             # Make the API request
-            # response = requests.get(
-            #     endpoint, headers=self.headers, params=request_params
-            # )
-            # response.raise_for_status()
+            response = requests.get(
+                endpoint, headers=self.headers, params=request_params
+            )
+            response.raise_for_status()
 
-            # # Parse the response
-            # data = response.json()
-            # logger.debug(
-            #     f"Yelp API response received: {len(data.get('businesses', []))} businesses"
-            # )
+            # Parse the response
+            data = response.json()
+            logger.debug(
+                f"Yelp API response received: {len(data.get('businesses', []))} businesses"
+            )
 
-            # # For debugging
-            # self._save_response_to_file(data, "yelp_response.json")
+            # For debugging
+            self._save_response_to_file(data, "yelp_response.json")
 
-            # return data
+            return data
 
             # Load the response from the file
-            with open("yelp_response.json", "r") as f:
-                data = json.load(f)
-            return data
+            # with open("yelp_response.json", "r") as f:
+            #     data = json.load(f)
+            # return data
 
         except requests.exceptions.RequestException as e:
             logger.error(f"Yelp API request failed: {str(e)}")
