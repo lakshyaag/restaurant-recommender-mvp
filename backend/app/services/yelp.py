@@ -67,21 +67,27 @@ class YelpService:
 
         try:
             # Make the API request
-            response = requests.get(
-                endpoint, headers=self.headers, params=request_params
-            )
-            response.raise_for_status()
+            # response = requests.get(
+            #     endpoint, headers=self.headers, params=request_params
+            # )
+            # response.raise_for_status()
 
-            # Parse the response
-            data = response.json()
-            logger.debug(
-                f"Yelp API response received: {len(data.get('businesses', []))} businesses"
-            )
+            # # Parse the response
+            # data = response.json()
+            # logger.debug(
+            #     f"Yelp API response received: {len(data.get('businesses', []))} businesses"
+            # )
 
-            # For debugging
-            self._save_response_to_file(data, "yelp_response.json")
+            # # For debugging
+            # self._save_response_to_file(data, "yelp_response.json")
 
+            # return data
+
+            # Load the response from the file
+            with open("yelp_response.json", "r") as f:
+                data = json.load(f)
             return data
+
         except requests.exceptions.RequestException as e:
             logger.error(f"Yelp API request failed: {str(e)}")
             raise Exception(f"Failed to fetch data from Yelp API: {str(e)}")
@@ -112,13 +118,13 @@ class YelpService:
         restaurants = []
         for business in data.get("businesses", []):
             # Convert the raw business data to our Restaurant model
-            restaurant = Restaurant.parse_obj(business)
+            restaurant = Restaurant.model_validate(business)
             restaurants.append(restaurant)
 
         # Extract region information if available
         region = None
         if "region" in data and "center" in data["region"]:
-            region = Region(center=Coordinates.parse_obj(data["region"]["center"]))
+            region = Region(center=Coordinates.model_validate(data["region"]["center"]))
 
         # Create the response object
         return RestaurantResponse(
@@ -145,7 +151,7 @@ class YelpService:
             location = MapLocation(
                 id=business["id"],
                 name=business["name"],
-                coordinates=Coordinates.parse_obj(business["coordinates"]),
+                coordinates=Coordinates.model_validate(business["coordinates"]),
                 rating=business["rating"],
                 price=business.get("price"),
                 categories=categories,
@@ -156,7 +162,7 @@ class YelpService:
         # Extract region information if available
         region = None
         if "region" in data and "center" in data["region"]:
-            region = Region(center=Coordinates.parse_obj(data["region"]["center"]))
+            region = Region(center=Coordinates.model_validate(data["region"]["center"]))
 
         # Create the response object
         return MapViewResponse(
