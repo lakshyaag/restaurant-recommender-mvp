@@ -1,23 +1,6 @@
 import Image from 'next/image';
 import { FaStar, FaMapMarkerAlt, FaPhone, FaExternalLinkAlt } from 'react-icons/fa';
-
-interface Restaurant {
-  id: string;
-  name: string;
-  image_url: string;
-  url: string;
-  review_count: number;
-  rating: number;
-  price?: string;
-  categories: string[];
-  address: string;
-  city: string;
-  zip_code: string;
-  phone: string;
-  latitude: number;
-  longitude: number;
-  distance?: number;
-}
+import { Restaurant } from '@/lib/api';
 
 interface RestaurantCardProps {
   restaurant: Restaurant;
@@ -33,34 +16,59 @@ export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
     price,
     categories,
     address,
-    phone
+    city,
+    zip_code,
+    phone,
+    distance,
+    is_closed,
+    hours
   } = restaurant;
 
   // Function to render stars based on rating
   const renderStars = (rating: number) => {
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const halfStar = rating % 1 >= 0.5;
+    return (
+      <div className="flex items-center">
+        <div className="flex mr-1">
+          {[...Array(5)].map((_, i) => (
+            <FaStar 
+              key={`star-${i}`} 
+              className={`${i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-300'} w-4 h-4`} 
+            />
+          ))}
+        </div>
+        <span className="text-sm font-medium text-gray-700">{rating.toFixed(1)}</span>
+        <span className="mx-1 text-gray-400">•</span>
+        <span className="text-sm text-gray-500">{review_count} reviews</span>
+      </div>
+    );
+  };
 
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<FaStar key={`star-${i}`} className="text-yellow-400" />);
-    }
-
-    if (halfStar) {
-      stars.push(<FaStar key="half-star" className="text-yellow-400" />);
-    }
-
-    const emptyStars = 5 - stars.length;
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(<FaStar key={`empty-${i}`} className="text-gray-300" />);
-    }
-
-    return stars;
+  // Format distance to show in km/miles
+  const formatDistance = (meters?: number) => {
+    if (!meters) return null;
+    // Convert to kilometers and format with 1 decimal place
+    const km = (meters / 1000).toFixed(1);
+    return `${km} km`;
+  };
+  
+  // Format full address
+  const formatAddress = () => {
+    const parts = [address];
+    if (city) parts.push(city);
+    if (zip_code) parts.push(zip_code);
+    return parts.join(', ');
+  };
+  
+  // Check if restaurant is open now
+  const isOpenNow = () => {
+    if (!hours || hours.length === 0) return null;
+    return hours[0]?.is_open_now;
   };
 
   return (
-    <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800">
-      <div className="relative h-48 w-full">
+    <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 h-full flex flex-col">
+      {/* Image */}
+      <div className="relative h-56 w-full">
         {image_url ? (
           <img
             src={image_url}
@@ -68,53 +76,80 @@ export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
             className="object-cover w-full h-full"
           />
         ) : (
-          <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-            <span className="text-gray-500 dark:text-gray-400">No image available</span>
+          <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+            <span className="text-gray-400">No image available</span>
+          </div>
+        )}
+        
+        {/* Status Badge */}
+        {isOpenNow() !== null && (
+          <div className="absolute top-3 right-3">
+            <span className={`text-xs font-medium px-2 py-1 rounded-full ${
+              isOpenNow() 
+                ? 'bg-green-100 text-green-800' 
+                : 'bg-red-100 text-red-800'
+            }`}>
+              {isOpenNow() ? 'Open Now' : 'Closed'}
+            </span>
+          </div>
+        )}
+        
+        {/* Price Badge */}
+        {price && (
+          <div className="absolute top-3 left-3">
+            <span className="bg-white/90 text-gray-900 text-sm font-medium px-2 py-1 rounded-full">
+              {price}
+            </span>
           </div>
         )}
       </div>
 
-      <div className="p-4">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{name}</h3>
+      {/* Content */}
+      <div className="p-5 flex-grow flex flex-col">
+        <h3 className="text-lg font-semibold text-gray-900 mb-1">{name}</h3>
         
-        <div className="flex items-center mb-2">
-          <div className="flex mr-2">
-            {renderStars(rating)}
-          </div>
-          <span className="text-sm text-gray-600 dark:text-gray-300">({review_count} reviews)</span>
+        {/* Rating */}
+        <div className="mb-3">
+          {renderStars(rating)}
         </div>
 
-        {price && (
-          <div className="mb-2">
-            <span className="text-green-600 dark:text-green-400 font-medium">{price}</span>
-          </div>
-        )}
-
-        <div className="mb-2">
-          <p className="text-gray-600 dark:text-gray-300">{categories.join(', ')}</p>
+        {/* Categories */}
+        <div className="mb-3">
+          <p className="text-sm text-gray-600">
+            {categories.join(' • ')}
+            {formatDistance(distance) && (
+              <>
+                <span className="mx-1 text-gray-400">•</span>
+                {formatDistance(distance)}
+              </>
+            )}
+          </p>
         </div>
 
-        <div className="flex items-start mb-2">
-          <FaMapMarkerAlt className="text-gray-500 dark:text-gray-400 mt-1 mr-2 flex-shrink-0" />
-          <p className="text-gray-600 dark:text-gray-300">{address}</p>
+        {/* Address */}
+        <div className="flex items-start mb-2 mt-auto">
+          <FaMapMarkerAlt className="text-gray-400 mt-1 mr-2 flex-shrink-0" />
+          <p className="text-sm text-gray-600">{formatAddress()}</p>
         </div>
 
+        {/* Phone */}
         {phone && (
-          <div className="flex items-center mb-2">
-            <FaPhone className="text-gray-500 dark:text-gray-400 mr-2" />
-            <p className="text-gray-600 dark:text-gray-300">{phone}</p>
+          <div className="flex items-center mb-3">
+            <FaPhone className="text-gray-400 mr-2" />
+            <p className="text-sm text-gray-600">{phone}</p>
           </div>
         )}
 
-        <div className="mt-4">
+        {/* View on Yelp Link */}
+        <div className="mt-2">
           <a
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 font-medium"
           >
             <span className="mr-1">View on Yelp</span>
-            <FaExternalLinkAlt className="text-xs" />
+            <FaExternalLinkAlt className="w-3 h-3" />
           </a>
         </div>
       </div>
