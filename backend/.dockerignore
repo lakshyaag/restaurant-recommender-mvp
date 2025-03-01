@@ -1,0 +1,27 @@
+# Environment files
+.env
+.env.*
+*.env
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Version control
+.git/
+.gitignore
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Development and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log files
+*.log 
