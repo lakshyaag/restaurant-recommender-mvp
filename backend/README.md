@@ -8,6 +8,27 @@ This is the backend API for the Bain Restaurant Recommender application, built w
 - Location-based recommendations
 - Filtering by price, categories, open status, etc.
 - Detailed restaurant information
+- Flexible API supporting multiple view types (list and map)
+- Clean architecture with separation of concerns
+
+## Project Structure
+
+```
+backend/
+├── app/                  # Application core
+│   ├── api/              # API routes/endpoints
+│   │   ├── health.py     # Health check endpoints
+│   │   └── restaurants.py # Restaurant endpoints
+│   ├── models/           # Data models
+│   │   └── restaurants.py # Pydantic models
+│   ├── services/         # Business logic
+│   │   └── yelp.py       # Yelp API interaction
+│   └── core/             # Core configuration
+│       └── config.py     # Environment and app config
+├── main.py               # Application entry point
+├── requirements.txt      # Dependencies
+└── pyproject.toml        # Project metadata
+```
 
 ## Setup
 
@@ -38,14 +59,14 @@ Start the FastAPI server:
 python main.py
 ```
 
-The API will be available at <http://localhost:8000>
+The API will be available at http://localhost:8000
 
 ## API Documentation
 
 Once the server is running, you can access the interactive API documentation at:
 
-- <http://localhost:8000/docs> (Swagger UI)
-- <http://localhost:8000/redoc> (ReDoc)
+- http://localhost:8000/api/docs (Swagger UI)
+- http://localhost:8000/api/redoc (ReDoc)
 
 ### Available Endpoints
 
@@ -59,21 +80,29 @@ Search for restaurants based on the provided parameters.
 
 Query Parameters:
 
-- `location` (required): Location to search for restaurants (e.g., "Toronto")
+- `location` (optional): Location to search for restaurants (e.g., "Toronto")
+- `latitude` & `longitude` (optional): Coordinates to search from
 - `term` (optional, default: "restaurant"): Search term
+- `radius` (optional): Search radius in meters (0-40000)
 - `limit` (optional, default: 20): Number of results to return (1-50)
 - `offset` (optional, default: 0): Offset for pagination
 - `sort_by` (optional, default: "best_match"): Sort by: best_match, rating, review_count, distance
 - `price` (optional): Pricing levels to filter by: 1, 2, 3, 4 ($ to $$$$)
 - `open_now` (optional, default: false): Filter for businesses that are open now
+- `open_at` (optional): Unix timestamp for when businesses should be open
 - `categories` (optional): Categories to filter by (e.g., "italian")
+- `attributes` (optional): Additional attributes to filter by
+- `view_type` (optional, default: "list"): View type for frontend (list or map)
+
+Note: Either `location` or both `latitude` and `longitude` must be provided.
 
 ## Development
 
-The application is structured with proper type hints and documentation. The main components are:
+The application is structured with clean architecture principles:
 
-- `main.py`: FastAPI application with endpoints
-- Models for request/response data validation
+- **API Layer**: Handles HTTP requests and responses
+- **Service Layer**: Contains business logic and external API interactions
+- **Model Layer**: Defines data structures using Pydantic
 
 ## Environment Variables
 

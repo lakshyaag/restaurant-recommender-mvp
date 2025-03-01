@@ -1,0 +1,1974 @@
+{
+  "businesses": [
+    {
+      "id": "hDy-uY7Vy_TZdGBzw59lhA",
+      "alias": "saku-sushi-toronto-2",
+      "name": "Saku Sushi",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/8TR7R7UI1rnzhqwkvuT_vQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/saku-sushi-toronto-2?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 565,
+      "categories": [
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        },
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        }
+      ],
+      "rating": 4.1,
+      "coordinates": {
+        "latitude": 43.6482,
+        "longitude": -79.4003
+      },
+      "transactions": [],
+      "price": "$$",
+      "location": {
+        "address1": "478 Queen Street W",
+        "address2": null,
+        "address3": "",
+        "city": "Toronto",
+        "zip_code": "M5V 2B2",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "478 Queen Street W",
+          "Toronto, ON M5V 2B2",
+          "Canada"
+        ]
+      },
+      "phone": "+14163687258",
+      "display_phone": "+1 416-368-7258",
+      "distance": 513.2270031775466,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2230",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2230",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2230",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2230",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2330",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "2330",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "2230",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": false
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "http://www.sakutoronto.com/#!menu/gyh51",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "BPKtVKuEfubfU2LZFSlf1w",
+      "alias": "gurume-sushi-toronto-2",
+      "name": "Gurume Sushi",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/yiKIx-ys15WrJqJcnfy3KQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/gurume-sushi-toronto-2?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 83,
+      "categories": [
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        },
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "korean",
+          "title": "Korean"
+        }
+      ],
+      "rating": 4.8,
+      "coordinates": {
+        "latitude": 43.6613914599157,
+        "longitude": -79.38099526635763
+      },
+      "transactions": [],
+      "location": {
+        "address1": "45 Carlton Street",
+        "address2": "unit 5",
+        "address3": null,
+        "city": "Toronto",
+        "zip_code": "M5B 2H9",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "45 Carlton Street",
+          "unit 5",
+          "Toronto, ON M5B 2H9",
+          "Canada"
+        ]
+      },
+      "phone": "+14169018333",
+      "display_phone": "+1 416-901-8333",
+      "distance": 1691.2784697657776,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1600",
+              "end": "2245",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1600",
+              "end": "2245",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1600",
+              "end": "2245",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1600",
+              "end": "2245",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "2245",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "2245",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "2245",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": false
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://gurumesushi.ca/menu/",
+        "open24_hours": null,
+        "waitlist_reservation": true
+      }
+    },
+    {
+      "id": "fownqKPBuBngHFL5BSAkHA",
+      "alias": "sushi-yugen-toronto",
+      "name": "Sushi Yugen",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/vBtBVTIGFh6TMy3OoLTylw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/sushi-yugen-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 24,
+      "categories": [
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        },
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "seafood",
+          "title": "Seafood"
+        }
+      ],
+      "rating": 4.7,
+      "coordinates": {
+        "latitude": 43.64949730027716,
+        "longitude": -79.38448369999999
+      },
+      "transactions": [],
+      "location": {
+        "address1": "150 York Street",
+        "address2": null,
+        "address3": "",
+        "city": "Toronto",
+        "zip_code": "M5H 3S5",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "150 York Street",
+          "Toronto, ON M5H 3S5",
+          "Canada"
+        ]
+      },
+      "phone": "+14163631888",
+      "display_phone": "+1 416-363-1888",
+      "distance": 1138.2448455609883,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1145",
+              "end": "1500",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1745",
+              "end": "2200",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1145",
+              "end": "1500",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1745",
+              "end": "2200",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1145",
+              "end": "1500",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1745",
+              "end": "2200",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1145",
+              "end": "1500",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1745",
+              "end": "2200",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1145",
+              "end": "1500",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1745",
+              "end": "2200",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1145",
+              "end": "1500",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1745",
+              "end": "2200",
+              "day": 5
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://sushiyugen.ca/menu/",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "Cuu0fyDYkmlMBwe1Ow1rGQ",
+      "alias": "yuzuki-fish-market-toronto",
+      "name": "Yuzuki Fish Market",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/iNxdGSIqThlxSKU9ljSnTA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/yuzuki-fish-market-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 30,
+      "categories": [
+        {
+          "alias": "seafoodmarkets",
+          "title": "Seafood Markets"
+        }
+      ],
+      "rating": 4.5,
+      "coordinates": {
+        "latitude": 43.64709,
+        "longitude": -79.3952
+      },
+      "transactions": [],
+      "location": {
+        "address1": "119 Spadina Avenue",
+        "address2": "Suite 101",
+        "address3": null,
+        "city": "Toronto",
+        "zip_code": "M5V",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "119 Spadina Avenue",
+          "Suite 101",
+          "Toronto, ON M5V",
+          "Canada"
+        ]
+      },
+      "phone": "",
+      "display_phone": "",
+      "distance": 645.7438132090562,
+      "business_hours": [],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "Qmwfg-PtYuCo5Q_IwcA_HQ",
+      "alias": "jabistro-toronto-2",
+      "name": "JaBistro",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fM5ncf6a9p2U-oABH3rosA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/jabistro-toronto-2?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 619,
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        }
+      ],
+      "rating": 4.2,
+      "coordinates": {
+        "latitude": 43.64980847080765,
+        "longitude": -79.3881706
+      },
+      "transactions": [],
+      "price": "$$$",
+      "location": {
+        "address1": "222 Richmond Street W",
+        "address2": "",
+        "address3": "",
+        "city": "Toronto",
+        "zip_code": "M5V 1V6",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "222 Richmond Street W",
+          "Toronto, ON M5V 1V6",
+          "Canada"
+        ]
+      },
+      "phone": "+16477480222",
+      "display_phone": "+1 647-748-0222",
+      "distance": 846.005151545019,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1700",
+              "end": "2230",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1700",
+              "end": "2230",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1700",
+              "end": "2230",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1700",
+              "end": "2230",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1700",
+              "end": "2300",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1700",
+              "end": "2300",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 6
+            },
+            {
+              "is_overnight": false,
+              "start": "1700",
+              "end": "2230",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "http://www.jabistro.com/menu/",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "G23jEVyQEGhnxAvsgaOvDA",
+      "alias": "iwami-toronto",
+      "name": "Iwami",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/4bieZcWrvZZF0ywSBIvAsw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/iwami-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 27,
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        }
+      ],
+      "rating": 4.6,
+      "coordinates": {
+        "latitude": 43.650341,
+        "longitude": -79.383827
+      },
+      "transactions": [],
+      "location": {
+        "address1": "111 Richmond Street W",
+        "address2": "",
+        "address3": "",
+        "city": "Toronto",
+        "zip_code": "M5H 2G4",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "111 Richmond Street W",
+          "Toronto, ON M5H 2G4",
+          "Canada"
+        ]
+      },
+      "phone": "+16476428414",
+      "display_phone": "+1 647-642-8414",
+      "distance": 1157.6304276134238,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2100",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2100",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 5
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://www.iwami.ca/menus",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "CCiSthI4jR1EdKg1HJMcNw",
+      "alias": "yuugi-izakaya-toronto",
+      "name": "Yuugi Izakaya",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/-sUhJGxJFxrTQRyvW5nMKQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/yuugi-izakaya-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 93,
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "tapasmallplates",
+          "title": "Tapas/Small Plates"
+        },
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        }
+      ],
+      "rating": 4.4,
+      "coordinates": {
+        "latitude": 43.65574,
+        "longitude": -79.39382
+      },
+      "transactions": [],
+      "location": {
+        "address1": "49 Baldwin Street",
+        "address2": null,
+        "address3": "",
+        "city": "Toronto",
+        "zip_code": "M5T 1L3",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "49 Baldwin Street",
+          "Toronto, ON M5T 1L3",
+          "Canada"
+        ]
+      },
+      "phone": "+16473438282",
+      "display_phone": "+1 647-343-8282",
+      "distance": 493.38445974949826,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": true,
+              "start": "1700",
+              "end": "0200",
+              "day": 0
+            },
+            {
+              "is_overnight": true,
+              "start": "1700",
+              "end": "0200",
+              "day": 1
+            },
+            {
+              "is_overnight": true,
+              "start": "1700",
+              "end": "0200",
+              "day": 2
+            },
+            {
+              "is_overnight": true,
+              "start": "1700",
+              "end": "0200",
+              "day": 3
+            },
+            {
+              "is_overnight": true,
+              "start": "1700",
+              "end": "0200",
+              "day": 4
+            },
+            {
+              "is_overnight": true,
+              "start": "1700",
+              "end": "0200",
+              "day": 5
+            },
+            {
+              "is_overnight": true,
+              "start": "1700",
+              "end": "0200",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": false
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://www.yuugiizakaya.com/food",
+        "open24_hours": null,
+        "waitlist_reservation": true
+      }
+    },
+    {
+      "id": "zzH3E5DA8eMzFwv2k5izyw",
+      "alias": "kensington-sushi-market-toronto-3",
+      "name": "Kensington Sushi Market",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/QZgJcTlHObhzrli21BfmXg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/kensington-sushi-market-toronto-3?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 22,
+      "categories": [
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        }
+      ],
+      "rating": 4.4,
+      "coordinates": {
+        "latitude": 43.655953,
+        "longitude": -79.402361
+      },
+      "transactions": [],
+      "location": {
+        "address1": "281 Augusta Avenue",
+        "address2": "",
+        "address3": null,
+        "city": "Toronto",
+        "zip_code": "M5T 2M1",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "281 Augusta Avenue",
+          "Toronto, ON M5T 2M1",
+          "Canada"
+        ]
+      },
+      "phone": "+14162509739",
+      "display_phone": "+1 416-250-9739",
+      "distance": 520.9125035748771,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2000",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2000",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2000",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2000",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2000",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2000",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2000",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": null,
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "HJfqDhr5nsXbWsgvAVucqA",
+      "alias": "kibo-market-toronto-5",
+      "name": "Kibo Market",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/kKOow48C1C8RV1aXJp8Nfw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/kibo-market-toronto-5?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 12,
+      "categories": [
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        },
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        }
+      ],
+      "rating": 4.8,
+      "coordinates": {
+        "latitude": 43.645241899630015,
+        "longitude": -79.38131876350222
+      },
+      "transactions": [],
+      "location": {
+        "address1": "65 Front Street W",
+        "address2": "Unit 434",
+        "address3": null,
+        "city": "Toronto",
+        "zip_code": "M5J 1E6",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "65 Front Street W",
+          "Unit 434",
+          "Toronto, ON M5J 1E6",
+          "Canada"
+        ]
+      },
+      "phone": "+14168668181",
+      "display_phone": "+1 416-866-8181",
+      "distance": 1565.8645593774836,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "0600",
+              "end": "2000",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "0600",
+              "end": "2000",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "0600",
+              "end": "2000",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "0600",
+              "end": "2000",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "0600",
+              "end": "2000",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "0800",
+              "end": "2000",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "0800",
+              "end": "2000",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": null,
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "vDmO5TmCFIUrLJGVwD4JKg",
+      "alias": "minami-toronto-toronto",
+      "name": "Minami Toronto",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/_kZsGwVf1LgPxCitj43pYQ/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/minami-toronto-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 144,
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        }
+      ],
+      "rating": 4.1,
+      "coordinates": {
+        "latitude": 43.64670917505803,
+        "longitude": -79.3884829276101
+      },
+      "transactions": [],
+      "location": {
+        "address1": "225 King Street W",
+        "address2": "",
+        "address3": null,
+        "city": "Toronto",
+        "zip_code": "M5V 3M2",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "225 King Street W",
+          "Toronto, ON M5V 3M2",
+          "Canada"
+        ]
+      },
+      "phone": "+14165199182",
+      "display_phone": "+1 416-519-9182",
+      "distance": 999.6292271347995,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "2100",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2100",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2200",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2200",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "2300",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "2300",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "2100",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": false
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://www.minamitoronto.com/menu",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "I_eCXujGAbl1JKrye_419w",
+      "alias": "kibo-sushi-house-toronto-18",
+      "name": "Kibo Sushi House",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/CU3BwFX3TAzu6rIAsPXJGw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/kibo-sushi-house-toronto-18?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 115,
+      "categories": [
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        },
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        }
+      ],
+      "rating": 3.8,
+      "coordinates": {
+        "latitude": 43.64653353048486,
+        "longitude": -79.39418509999945
+      },
+      "transactions": [],
+      "price": "$$",
+      "location": {
+        "address1": "36 Charlotte Street",
+        "address2": "Unit 102",
+        "address3": "",
+        "city": "Toronto",
+        "zip_code": "M5V 3P7",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "36 Charlotte Street",
+          "Unit 102",
+          "Toronto, ON M5V 3P7",
+          "Canada"
+        ]
+      },
+      "phone": "+16477488887",
+      "display_phone": "+1 647-748-8887",
+      "distance": 728.6551191419064,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1030",
+              "end": "2200",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1030",
+              "end": "2200",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1030",
+              "end": "2200",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1030",
+              "end": "2200",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1030",
+              "end": "2200",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1030",
+              "end": "2200",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1030",
+              "end": "2200",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": null,
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "QeaGkOqXAa0t_poib6kgEw",
+      "alias": "i8yokocho-toronto",
+      "name": "I8Yokocho",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/Q2zwk7OmsEL6XfvrHDDfNg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/i8yokocho-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 4,
+      "categories": [
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        },
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        }
+      ],
+      "rating": 4.5,
+      "coordinates": {
+        "latitude": 43.6542254460236,
+        "longitude": -79.3907991796732
+      },
+      "transactions": [],
+      "location": {
+        "address1": "285 Dundas Street W",
+        "address2": "",
+        "address3": null,
+        "city": "Toronto",
+        "zip_code": "M5T 1G1",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "285 Dundas Street W",
+          "Toronto, ON M5T 1G1",
+          "Canada"
+        ]
+      },
+      "phone": "+14163488878",
+      "display_phone": "+1 416-348-8878",
+      "distance": 613.0014750290393,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2200",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": null,
+        "open24_hours": null,
+        "waitlist_reservation": true
+      }
+    },
+    {
+      "id": "yqWBmc8P5S9sdjX5e6LMEg",
+      "alias": "hana-don-toronto-5",
+      "name": "Hana Don",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/zZJgkNfdbJxUPkKyInVKZg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/hana-don-toronto-5?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 53,
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        },
+        {
+          "alias": "seafood",
+          "title": "Seafood"
+        }
+      ],
+      "rating": 4.2,
+      "coordinates": {
+        "latitude": 43.65572,
+        "longitude": -79.38454
+      },
+      "transactions": [],
+      "location": {
+        "address1": "128 Dundas Street W",
+        "address2": "",
+        "address3": null,
+        "city": "Toronto",
+        "zip_code": "M5G 1C3",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "128 Dundas Street W",
+          "Toronto, ON M5G 1C3",
+          "Canada"
+        ]
+      },
+      "phone": "+14163488688",
+      "display_phone": "+1 416-348-8688",
+      "distance": 1140.9194890517897,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2200",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2200",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2200",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2200",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2300",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2300",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "2230",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://hanadon.ca/menu",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "LBQD0H2109oltJNF1raLWA",
+      "alias": "the-haam-toronto-5",
+      "name": "The Haam",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/kPmY4seF7PzH6w4SWN2MYA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/the-haam-toronto-5?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 361,
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "mexican",
+          "title": "Mexican"
+        },
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        }
+      ],
+      "rating": 4.2,
+      "coordinates": {
+        "latitude": 43.64743,
+        "longitude": -79.39308
+      },
+      "transactions": [],
+      "price": "$$",
+      "location": {
+        "address1": "342 Adelaide St W",
+        "address2": "",
+        "address3": null,
+        "city": "Toronto",
+        "zip_code": "M5V 1R7",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "342 Adelaide St W",
+          "Toronto, ON M5V 1R7",
+          "Canada"
+        ]
+      },
+      "phone": "+14169777258",
+      "display_phone": "+1 416-977-7258",
+      "distance": 685.7165830177036,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2300",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2300",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2300",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2300",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2330",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1500",
+              "end": "2330",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1500",
+              "end": "2300",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": false
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://www.thehaamtoronto.com/menu",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "RKXrG6Gqp5SKl1WXG7Jlqg",
+      "alias": "yuzuki-toronto",
+      "name": "Yuzuki",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/Dh1QAyLip0NB3aOyQB9r0g/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/yuzuki-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 47,
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        }
+      ],
+      "rating": 4.4,
+      "coordinates": {
+        "latitude": 43.6710550561225,
+        "longitude": -79.38395514436598
+      },
+      "transactions": [],
+      "location": {
+        "address1": "120 Bloor Street E",
+        "address2": "Unit 104",
+        "address3": "",
+        "city": "Toronto",
+        "zip_code": "M4W 1B7",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "120 Bloor Street E",
+          "Unit 104",
+          "Toronto, ON M4W 1B7",
+          "Canada"
+        ]
+      },
+      "phone": "+14169232997",
+      "display_phone": "+1 416-923-2997",
+      "distance": 2356.1228149674507,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1630",
+              "end": "2100",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1630",
+              "end": "2100",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1630",
+              "end": "2100",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1630",
+              "end": "2100",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1630",
+              "end": "2130",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1430",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1630",
+              "end": "2130",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1630",
+              "end": "2100",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://www.yuzuki.ca/menu",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "q9_gLvTNf11etVxbH7JY0Q",
+      "alias": "yasu-toronto-8",
+      "name": "Yasu",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/2JyNYTEq-OTi36GUXiUoaA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/yasu-toronto-8?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 450,
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        }
+      ],
+      "rating": 4.5,
+      "coordinates": {
+        "latitude": 43.6627404,
+        "longitude": -79.40321480521669
+      },
+      "transactions": [],
+      "price": "$$$$",
+      "location": {
+        "address1": "81 Harbord Street",
+        "address2": "",
+        "address3": "",
+        "city": "Toronto",
+        "zip_code": "M5S 1G4",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "81 Harbord Street",
+          "Toronto, ON M5S 1G4",
+          "Canada"
+        ]
+      },
+      "phone": "+14169448212",
+      "display_phone": "+1 416-944-8212",
+      "distance": 1216.0916078677199,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1800",
+              "end": "2300",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1800",
+              "end": "2300",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1800",
+              "end": "2300",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1800",
+              "end": "2300",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1700",
+              "end": "2330",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1700",
+              "end": "2330",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1700",
+              "end": "2330",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": false
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://yasu-sushibar.com/take-out.html",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "ITp8_qN8ZFvEqYxVC2Z8fw",
+      "alias": "koi-japan-sushi-toronto",
+      "name": "Koi Japan Sushi",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/XYlW3a2HI68EY26DylOAaw/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/koi-japan-sushi-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 15,
+      "categories": [
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        },
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        }
+      ],
+      "rating": 4.7,
+      "coordinates": {
+        "latitude": 43.65594778483366,
+        "longitude": -79.40238866955042
+      },
+      "transactions": [],
+      "location": {
+        "address1": "281 Augusta Avenue",
+        "address2": "",
+        "address3": null,
+        "city": "Toronto",
+        "zip_code": "M5T 2M1",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "281 Augusta Avenue",
+          "Toronto, ON M5T 2M1",
+          "Canada"
+        ]
+      },
+      "phone": "+19054098686",
+      "display_phone": "+1 905-409-8686",
+      "distance": 522.5214958840257,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2100",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2100",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2100",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2100",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2100",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "2100",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://order.koijapansushi.com/menu",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "HUYEadSbGSQNHXFmT2Ujjw",
+      "alias": "manpuku-japanese-eatery-toronto",
+      "name": "Manpuku Japanese Eatery",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/jDdU82vfvps2Zx2A1NzcdA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/manpuku-japanese-eatery-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 536,
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "noodles",
+          "title": "Noodles"
+        }
+      ],
+      "rating": 4.0,
+      "coordinates": {
+        "latitude": 43.6536849587178,
+        "longitude": -79.39089315276075
+      },
+      "transactions": [],
+      "price": "$",
+      "location": {
+        "address1": "105 McCaul Street",
+        "address2": "Unit 29-31",
+        "address3": "",
+        "city": "Toronto",
+        "zip_code": "M5T 2X4",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "105 McCaul Street",
+          "Unit 29-31",
+          "Toronto, ON M5T 2X4",
+          "Canada"
+        ]
+      },
+      "phone": "+14169796763",
+      "display_phone": "+1 416-979-6763",
+      "distance": 589.2252724645583,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1930",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1930",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1930",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1930",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1130",
+              "end": "1930",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1200",
+              "end": "1930",
+              "day": 5
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": false
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "http://www.manpuku.ca/menu.html",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "cfe5BMTGgAOXnAbgZD69bw",
+      "alias": "j-san-sushi-bar-toronto",
+      "name": "J San Sushi Bar",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/jaqVZZCroujYv1v2QNAlmA/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/j-san-sushi-bar-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 98,
+      "categories": [
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        }
+      ],
+      "rating": 4.4,
+      "coordinates": {
+        "latitude": 43.656165217341915,
+        "longitude": -79.37458999718368
+      },
+      "transactions": [],
+      "location": {
+        "address1": "186 Jarvis Street",
+        "address2": null,
+        "address3": "",
+        "city": "Toronto",
+        "zip_code": "M5B 2B7",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "186 Jarvis Street",
+          "Toronto, ON M5B 2B7",
+          "Canada"
+        ]
+      },
+      "phone": "+16473391933",
+      "display_phone": "+1 647-339-1933",
+      "distance": 1929.3874887371614,
+      "business_hours": [
+        {
+          "open": [
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2100",
+              "day": 0
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2100",
+              "day": 1
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2100",
+              "day": 2
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2100",
+              "day": 3
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2100",
+              "day": 4
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2100",
+              "day": 5
+            },
+            {
+              "is_overnight": false,
+              "start": "1100",
+              "end": "2100",
+              "day": 6
+            }
+          ],
+          "hours_type": "REGULAR",
+          "is_open_now": true
+        }
+      ],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://www.jsansushibar.ca/order-online",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    },
+    {
+      "id": "-M8KH-JgJ1TkCFRePuEq4A",
+      "alias": "flame-sushi-toronto",
+      "name": "Flame sushi",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/DrmmvPr9DN5gc-9gLwwCSg/o.jpg",
+      "is_closed": false,
+      "url": "https://www.yelp.com/biz/flame-sushi-toronto?adjust_creative=Dtyg59LdFlP2-FU3f2z4tw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=Dtyg59LdFlP2-FU3f2z4tw",
+      "review_count": 63,
+      "categories": [
+        {
+          "alias": "sushi",
+          "title": "Sushi Bars"
+        }
+      ],
+      "rating": 4.1,
+      "coordinates": {
+        "latitude": 43.65054089190194,
+        "longitude": -79.38906585225055
+      },
+      "transactions": [],
+      "location": {
+        "address1": "204 Queen St W",
+        "address2": "",
+        "address3": null,
+        "city": "Toronto",
+        "zip_code": "M5V 1Z2",
+        "country": "CA",
+        "state": "ON",
+        "display_address": [
+          "204 Queen St W",
+          "Toronto, ON M5V 1Z2",
+          "Canada"
+        ]
+      },
+      "phone": "+16476719288",
+      "display_phone": "+1 647-671-9288",
+      "distance": 751.77737516749,
+      "business_hours": [],
+      "attributes": {
+        "business_temp_closed": null,
+        "menu_url": "https://flamesushi.com/#menu",
+        "open24_hours": null,
+        "waitlist_reservation": null
+      }
+    }
+  ],
+  "total": 431,
+  "region": {
+    "center": {
+      "longitude": -79.39802169799805,
+      "latitude": 43.652469415075885
+    }
+  }
+}

@@ -1,8 +1,0 @@
-{
-    "term": "restaurant",
-    "location": "New York City",
-    "limit": 20,
-    "offset": 0,
-    "sort_by": "best_match",
-    "open_now": false
-}
