@@ -1,9 +1,8 @@
 from fastapi import APIRouter, HTTPException, Query
-from typing import Union, Optional
+from typing import Optional
 from app.models.restaurants import (
     RestaurantSearchParams,
     RestaurantResponse,
-    MapViewResponse,
     SortBy,
 )
 from app.services.yelp import yelp_service
@@ -11,7 +10,7 @@ from app.services.yelp import yelp_service
 router = APIRouter()
 
 
-@router.get("/restaurants", response_model=Union[RestaurantResponse, MapViewResponse])
+@router.get("/restaurants", response_model=RestaurantResponse)
 async def search_restaurants(
     # Location parameters (at least one is required)
     location: Optional[str] = Query(
@@ -67,12 +66,7 @@ async def search_restaurants(
     reservation_covers: Optional[int] = Query(
         None, description="Number of people for reservation", ge=1, le=10
     ),
-    
-    # View type for frontend
-    view_type: Optional[str] = Query(
-        "list", description="View type for frontend (list or map)"
-    ),
-) -> Union[RestaurantResponse, MapViewResponse]:
+) -> RestaurantResponse:
     """
     Search for restaurants based on location and various filters.
 
@@ -107,14 +101,12 @@ async def search_restaurants(
         reservation_date=reservation_date,
         reservation_time=reservation_time,
         reservation_covers=reservation_covers,
-        view_type=view_type,
     )
 
     try:
         # Use the Yelp service to search for restaurants
         data = yelp_service.search_restaurants(search_params)
 
-        # Format the response based on the view type
         return yelp_service.format_response(data, search_params)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

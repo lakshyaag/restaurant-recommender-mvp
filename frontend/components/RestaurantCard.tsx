@@ -1,165 +1,145 @@
-import type { Restaurant } from "@/lib/api";
+import { useState } from "react";
+import type { Restaurant } from "@/store/useRestaurantStore";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { MapPin, Phone, Star } from "lucide-react";
 import Image from "next/image";
-import {
-	FaExternalLinkAlt,
-	FaMapMarkerAlt,
-	FaPhone,
-	FaStar,
-} from "react-icons/fa";
+import { motion } from "framer-motion";
+import RestaurantDetailModal from "./RestaurantDetailModal";
 
 interface RestaurantCardProps {
 	restaurant: Restaurant;
 }
 
-export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
-	const {
-		name,
-		image_url,
-		url,
-		review_count,
-		rating,
-		price,
-		categories,
-		address,
-		city,
-		zip_code,
-		phone,
-		distance,
-		is_closed,
-		hours,
-	} = restaurant;
+const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-	// Function to render stars based on rating
-	const renderStars = (rating: number) => {
+	// Helper to render star rating
+	const renderStars = (rating: number): React.ReactNode => {
+		const fullStars = Math.floor(rating);
+		const hasHalfStar = rating % 1 >= 0.5;
+
 		return (
 			<div className="flex items-center">
-				<div className="flex mr-1">
-					{[...Array(5)].map((_, i) => (
-						<FaStar
-							key={`star-${i}`}
-							className={`${i < Math.floor(rating) ? "text-yellow-400" : "text-gray-300"} w-4 h-4`}
-						/>
-					))}
-				</div>
-				<span className="text-sm font-medium text-gray-700">
-					{rating.toFixed(1)}
-				</span>
-				<span className="mx-1 text-gray-400">•</span>
-				<span className="text-sm text-gray-500">{review_count} reviews</span>
+				{[...Array(5)].map((_, i) => (
+					<Star
+						key={`${i}-${rating}`}
+						className={`h-3 w-3 ${
+							i < fullStars
+								? "text-yellow-400 fill-yellow-400"
+								: i === fullStars && hasHalfStar
+									? "text-yellow-400 fill-yellow-400 opacity-50"
+									: "text-gray-300"
+						}`}
+					/>
+				))}
+				<span className="ml-1 text-xs font-medium">{rating.toFixed(1)}</span>
 			</div>
 		);
 	};
 
-	// Format distance to show in km/miles
-	const formatDistance = (meters?: number) => {
-		if (!meters) return null;
-		// Convert to kilometers and format with 1 decimal place
-		const km = (meters / 1000).toFixed(1);
-		return `${km} km`;
-	};
-
-	// Format full address
-	const formatAddress = () => {
-		const parts = [address];
-		if (city) parts.push(city);
-		if (zip_code) parts.push(zip_code);
-		return parts.join(", ");
-	};
-
-	// Check if restaurant is open now
-	const isOpenNow = () => {
-		if (!hours || hours.length === 0) return null;
-		return hours[0]?.is_open_now;
-	};
+	const openModal = () => setIsModalOpen(true);
+	const closeModal = () => setIsModalOpen(false);
 
 	return (
-		<div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 h-full flex flex-col">
-			{/* Image */}
-			<div className="relative h-56 w-full">
-				{image_url ? (
-					<img
-						src={image_url}
-						alt={`${name} restaurant`}
-						className="object-cover w-full h-full"
-					/>
-				) : (
-					<div className="w-full h-full bg-gray-100 flex items-center justify-center">
-						<span className="text-gray-400">No image available</span>
-					</div>
-				)}
-
-				{/* Status Badge */}
-				{isOpenNow() !== null && (
-					<div className="absolute top-3 right-3">
-						<span
-							className={`text-xs font-medium px-2 py-1 rounded-full ${
-								isOpenNow()
-									? "bg-green-100 text-green-800"
-									: "bg-red-100 text-red-800"
-							}`}
-						>
-							{isOpenNow() ? "Open Now" : "Closed"}
-						</span>
-					</div>
-				)}
-
-				{/* Price Badge */}
-				{price && (
-					<div className="absolute top-3 left-3">
-						<span className="bg-white/90 text-gray-900 text-sm font-medium px-2 py-1 rounded-full">
-							{price}
-						</span>
-					</div>
-				)}
-			</div>
-
-			{/* Content */}
-			<div className="p-5 flex-grow flex flex-col">
-				<h3 className="text-lg font-semibold text-gray-900 mb-1">{name}</h3>
-
-				{/* Rating */}
-				<div className="mb-3">{renderStars(rating)}</div>
-
-				{/* Categories */}
-				<div className="mb-3">
-					<p className="text-sm text-gray-600">
-						{categories.join(" • ")}
-						{formatDistance(distance) && (
-							<>
-								<span className="mx-1 text-gray-400">•</span>
-								{formatDistance(distance)}
-							</>
+		<>
+			<Card
+				className="overflow-hidden hover:shadow-lg transition-all cursor-pointer h-full"
+				onClick={openModal}
+			>
+				<motion.div
+					whileHover={{ scale: 1.03 }}
+					transition={{ type: "spring", stiffness: 300, damping: 15 }}
+				>
+					{/* Restaurant Image */}
+					<div className="relative w-full h-[180px]">
+						<Image
+							src={restaurant.image_url || "/images/placeholder-restaurant.jpg"}
+							alt={restaurant.name}
+							className="object-cover"
+							fill
+							sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+						/>
+						{restaurant.is_closed === false && (
+							<Badge variant="success" className="absolute top-2 right-2">
+								Open
+							</Badge>
 						)}
-					</p>
-				</div>
-
-				{/* Address */}
-				<div className="flex items-start mb-2 mt-auto">
-					<FaMapMarkerAlt className="text-gray-400 mt-1 mr-2 flex-shrink-0" />
-					<p className="text-sm text-gray-600">{formatAddress()}</p>
-				</div>
-
-				{/* Phone */}
-				{phone && (
-					<div className="flex items-center mb-3">
-						<FaPhone className="text-gray-400 mr-2" />
-						<p className="text-sm text-gray-600">{phone}</p>
+						{restaurant.is_closed === true && (
+							<Badge variant="destructive" className="absolute top-2 right-2">
+								Closed
+							</Badge>
+						)}
+						{restaurant.price && (
+							<Badge
+								variant="outline"
+								className="absolute bottom-2 right-2 bg-white/80 backdrop-blur-sm"
+							>
+								{restaurant.price}
+							</Badge>
+						)}
 					</div>
-				)}
 
-				{/* View on Yelp Link */}
-				<div className="mt-2">
-					<a
-						href={url}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 font-medium"
-					>
-						<span className="mr-1">View on Yelp</span>
-						<FaExternalLinkAlt className="w-3 h-3" />
-					</a>
-				</div>
-			</div>
-		</div>
+					<CardContent className="p-4">
+						{/* Restaurant Name */}
+						<h3 className="font-bold text-base mb-1 truncate">
+							{restaurant.name}
+						</h3>
+
+						{/* Rating */}
+						<div className="flex items-center mb-2">
+							{renderStars(restaurant.rating)}
+							<span className="ml-2 text-xs text-muted-foreground">
+								({restaurant.review_count})
+							</span>
+						</div>
+
+						{/* Categories */}
+						<div className="flex flex-wrap gap-1 mt-2">
+							{restaurant.categories.slice(0, 3).map((category) => (
+								<Badge
+									key={category.alias}
+									variant="secondary"
+									className="text-xs py-0 h-5"
+								>
+									{category.title}
+								</Badge>
+							))}
+							{restaurant.categories.length > 3 && (
+								<span className="text-xs text-muted-foreground">
+									+{restaurant.categories.length - 3} more
+								</span>
+							)}
+						</div>
+
+						{/* Address */}
+						<div className="flex items-start gap-2 mt-2">
+							<MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-muted-foreground" />
+							<span className="text-sm">
+								{restaurant.location.display_address?.join(", ") ||
+									"Address not available"}
+							</span>
+						</div>
+
+						{/* Phone */}
+						{restaurant.display_phone && (
+							<div className="mt-1 flex items-center gap-2">
+								<Phone className="h-4 w-4 text-muted-foreground" />
+								<span className="text-sm">{restaurant.display_phone}</span>
+							</div>
+						)}
+					</CardContent>
+				</motion.div>
+			</Card>
+
+			{/* Modal with restaurant details */}
+			<RestaurantDetailModal
+				restaurant={restaurant}
+				isOpen={isModalOpen}
+				onClose={closeModal}
+			/>
+		</>
 	);
-}
+};
+
+export default RestaurantCard;
