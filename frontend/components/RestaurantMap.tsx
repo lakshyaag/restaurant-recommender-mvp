@@ -1,17 +1,15 @@
-import type { MapViewResponse, Restaurant } from "@/store/useRestaurantStore";
+import type { Region, Restaurant } from "@/store/useRestaurantStore";
 import { Card } from "@/components/ui/card";
 import { GoogleMapsComponent } from "./GoogleMapsComponent";
 import { useState } from "react";
 import RestaurantDetailModal from "./RestaurantDetailModal";
-import { ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 interface RestaurantMapProps {
 	restaurants: Restaurant[];
-	map: MapViewResponse;
+	region: Region;
 }
 
-const RestaurantMap = ({ restaurants, map }: RestaurantMapProps) => {
+const RestaurantMap = ({ restaurants, region }: RestaurantMapProps) => {
 	const [selectedRestaurant, setSelectedRestaurant] =
 		useState<Restaurant | null>(null);
 
@@ -22,7 +20,7 @@ const RestaurantMap = ({ restaurants, map }: RestaurantMapProps) => {
 		>
 			<div className="relative flex-grow">
 				<GoogleMapsComponent
-					center={map.region.center}
+					center={region.center}
 					restaurants={restaurants}
 					onSelectRestaurant={(restaurant) => setSelectedRestaurant(restaurant)}
 				/>

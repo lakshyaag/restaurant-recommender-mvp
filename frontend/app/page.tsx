@@ -23,7 +23,7 @@ export default function Home() {
 		searchParams,
 		hasSearched,
 		setSearchParams,
-		map,
+		region,
 	} = useRestaurantStore();
 
 	// Determine view type (list or map)
@@ -185,12 +185,10 @@ export default function Home() {
 													transition={{ duration: 0.3 }}
 												>
 													{viewType === "map" ? (
-														map && (
-															<RestaurantMap
-																restaurants={restaurants}
-																map={map}
-															/>
-														)
+														<RestaurantMap
+															restaurants={restaurants}
+															region={region}
+														/>
 													) : (
 														<RestaurantList restaurants={restaurants} />
 													)}

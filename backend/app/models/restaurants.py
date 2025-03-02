@@ -142,11 +142,6 @@ class RestaurantSearchParams(BaseModel):
         None, description="Number of people for reservation", ge=1, le=10
     )
 
-    # View type for frontend
-    view_type: Optional[str] = Field(
-        "list", description="View type for frontend (list or map)"
-    )
-
 
 # Response models
 class Coordinates(BaseModel):
@@ -226,30 +221,3 @@ class RestaurantResponse(BaseModel):
     offset: int
     limit: int
     location: str
-
-
-# Enhanced models for map view
-class MapLocation(BaseModel):
-    """Simplified location data for map view."""
-
-    id: str
-    name: str
-    coordinates: Coordinates
-    rating: float
-    price: Optional[str] = None
-    categories: List[str]
-    image_url: Optional[str] = None
-
-
-class MapViewResponse(BaseModel):
-    """Simplified API response for map view."""
-
-    locations: List[MapLocation]
-    total: int
-    region: Optional[Region] = None
-
-class CombinedResponse(BaseModel):
-    """Combined response for both map and list views."""
-
-    map: MapViewResponse
-    list: RestaurantResponse

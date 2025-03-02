@@ -1,14 +1,12 @@
 import requests
 import json
 import logging
-from typing import Dict, Any, Union
+from typing import Dict, Any
 from app.core.config import settings
 from app.models.restaurants import (
     RestaurantSearchParams,
     Restaurant,
     RestaurantResponse,
-    MapLocation,
-    MapViewResponse,
     Region,
     Coordinates,
 )
@@ -66,55 +64,33 @@ class YelpService:
         logger.debug(f"Yelp API request: {endpoint} with params: {request_params}")
 
         try:
-            # # Make the API request
-            # response = requests.get(
-            #     endpoint, headers=self.headers, params=request_params
-            # )
-            # response.raise_for_status()
+            # Make the API request
+            response = requests.get(
+                endpoint, headers=self.headers, params=request_params
+            )
+            response.raise_for_status()
 
-            # # Parse the response
-            # data = response.json()
-            # logger.debug(
-            #     f"Yelp API response received: {len(data.get('businesses', []))} businesses"
-            # )
+            # Parse the response
+            data = response.json()
+            logger.debug(
+                f"Yelp API response received: {len(data.get('businesses', []))} businesses"
+            )
 
-            # # For debugging
-            # self._save_response_to_file(data, "yelp_response.json")
+            # For debugging
+            self._save_response_to_file(data, "yelp_response.json")
 
-            # return data
+            return data
 
             # Load the response from the file
-            with open("yelp_response.json", "r") as f:
-                data = json.load(f)
-            return data
+            # with open("yelp_response.json", "r") as f:
+            #     data = json.load(f)
+            # return data
 
         except requests.exceptions.RequestException as e:
             logger.error(f"Yelp API request failed: {str(e)}")
             raise Exception(f"Failed to fetch data from Yelp API: {str(e)}")
 
     def format_response(
-        self, data: Dict[str, Any], params: RestaurantSearchParams
-    ) -> Union[RestaurantResponse, MapViewResponse]:
-        """
-        Format the raw API response into our response model.
-
-        Args:
-            data: The raw API response.
-            params: The original search parameters.
-
-        Returns:
-            A formatted response object.
-        """
-        # Different response formats based on view type
-        map_response = self._format_map_response(data, params)
-        list_response = self._format_list_response(data, params)
-
-        return {
-            "map": map_response,
-            "list": list_response,
-        }
-
-    def _format_list_response(
         self, data: Dict[str, Any], params: RestaurantSearchParams
     ) -> RestaurantResponse:
         """Format response for list view."""
@@ -137,39 +113,6 @@ class YelpService:
             offset=params.offset or 0,
             limit=params.limit or 20,
             location=params.location or f"{params.latitude},{params.longitude}",
-        )
-
-    def _format_map_response(
-        self, data: Dict[str, Any], params: RestaurantSearchParams
-    ) -> MapViewResponse:
-        """Format response for map view."""
-        locations = []
-        for business in data.get("businesses", []):
-            # Extract category titles
-            categories = [
-                category["title"] for category in business.get("categories", [])
-            ]
-
-            # Create a simplified location object for map view
-            location = MapLocation(
-                id=business["id"],
-                name=business["name"],
-                coordinates=Coordinates.model_validate(business["coordinates"]),
-                rating=business["rating"],
-                price=business.get("price"),
-                categories=categories,
-                image_url=business.get("image_url"),
-            )
-            locations.append(location)
-
-        # Extract region information if available
-        region = None
-        if "region" in data and "center" in data["region"]:
-            region = Region(center=Coordinates.model_validate(data["region"]["center"]))
-
-        # Create the response object
-        return MapViewResponse(
-            locations=locations, total=data.get("total", 0), region=region
         )
 
     def _save_response_to_file(self, data: Dict[str, Any], filename: str) -> None:

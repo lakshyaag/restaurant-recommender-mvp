@@ -45,7 +45,7 @@ interface RestaurantState {
 	restaurants: Restaurant[];
 	totalResults: number;
 	hasSearched: boolean;
-	map?: MapViewResponse;
+	region: Region;
 
 	// Actions
 	setSearchParams: (params: SearchParams) => void;
@@ -53,57 +53,30 @@ interface RestaurantState {
 	resetSearch: () => void;
 }
 
+export interface Region {
+	center: {
+		latitude: number;
+		longitude: number;
+	};
+}
+
 interface RestaurantResponse {
 	restaurants: Restaurant[];
 	total: number;
-	region: {
-		center: {
-			latitude: number;
-			longitude: number;
-		};
-	};
+	region: Region;
 	offset?: number;
 	limit?: number;
 	location?: string;
 }
 
-interface MapLocation {
-	id: string;
-	name: string;
-	coordinates: {
-		latitude: number;
-		longitude: number;
-	};
-	rating: number;
-	price?: string;
-	categories: string[];
-	image_url?: string;
-}
-
-export interface MapViewResponse {
-	locations: MapLocation[];
-	total: number;
-	region: {
-		center: {
-			latitude: number;
-			longitude: number;
-		};
-	};
-}
-
-interface ApiResponse {
-	map: MapViewResponse;
-	list: RestaurantResponse;
-}
-
 const defaultSearchParams: SearchParams = {
-	location: "Toronto",
+	location: "2 Bloor St E 29th Floor, Toronto, ON M4W 1A8",
 	term: "",
 	radius: 2000,
 	price: "",
 	open_now: false,
 	sort_by: "best_match" as const,
-	limit: 20,
+	limit: 30,
 	offset: 0,
 	view_type: "list" as const,
 };
@@ -116,7 +89,12 @@ const useRestaurantStore = create<RestaurantState>((set, get) => ({
 	restaurants: [],
 	totalResults: 0,
 	hasSearched: false,
-	map: undefined,
+	region: {
+		center: {
+			latitude: 0,
+			longitude: 0,
+		},
+	},
 
 	// Actions
 	setSearchParams: (params) =>
@@ -148,13 +126,13 @@ const useRestaurantStore = create<RestaurantState>((set, get) => ({
 				throw new Error(errorData.message || "Failed to fetch restaurants");
 			}
 
-			const data = (await response.json()) as ApiResponse;
+			const data = (await response.json()) as RestaurantResponse;
 
 			// Update store with results
 			set({
-				restaurants: data.list.restaurants || [],
-				totalResults: data.list.total || 0,
-				map: data.map,
+				restaurants: data.restaurants || [],
+				region: data.region,
+				totalResults: data.total || 0,
 				isLoading: false,
 			});
 		} catch (error) {

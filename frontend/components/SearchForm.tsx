@@ -304,9 +304,20 @@ const SearchForm = () => {
 										<FormControl>
 											<Input {...field} placeholder="italian,pizza,chinese" />
 										</FormControl>
-										<FormDescription>
-											Enter category aliases separated by commas
-										</FormDescription>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+
+							<FormField
+								control={form.control}
+								name="attributes"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Attributes (comma-separated)</FormLabel>
+										<FormControl>
+											<Input {...field} placeholder="hot_and_new,reservation" />
+										</FormControl>
 										<FormMessage />
 									</FormItem>
 								)}
@@ -332,58 +343,6 @@ const SearchForm = () => {
 								)}
 							/>
 
-							<FormField
-								control={form.control}
-								name="view_type"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>View Type</FormLabel>
-										<Select
-											onValueChange={field.onChange}
-											defaultValue={field.value}
-										>
-											<FormControl>
-												<SelectTrigger>
-													<SelectValue placeholder="Select view type" />
-												</SelectTrigger>
-											</FormControl>
-											<SelectContent>
-												<SelectItem value="list">List</SelectItem>
-												<SelectItem value="map">Map</SelectItem>
-											</SelectContent>
-										</Select>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-
-							<FormField
-								control={form.control}
-								name="locale"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Locale</FormLabel>
-										<FormControl>
-											<Input {...field} placeholder="en_US" />
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-
-							<FormField
-								control={form.control}
-								name="attributes"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Attributes (comma-separated)</FormLabel>
-										<FormControl>
-											<Input {...field} placeholder="hot_and_new,reservation" />
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
 							<div className="space-y-2">
 								<FormLabel>Coordinates (optional)</FormLabel>
 								<div className="grid grid-cols-2 gap-4">
