@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -28,6 +28,13 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { MultiSelect } from "@/components/ui/multi-select";
+import {
+	getRestaurantCategories,
+	categoriesToString,
+	stringToCategories,
+} from "@/lib/categories-utils";
+import type { Option } from "@/components/ui/multi-select";
 
 export interface SearchParams {
 	location?: string;
@@ -94,10 +101,22 @@ type SearchFormValues = z.infer<typeof searchFormSchema>;
 const SearchForm = () => {
 	const [showAdvanced, setShowAdvanced] = useState(false);
 	const [showReservation, setShowReservation] = useState(false);
+	const [categoryOptions, setCategoryOptions] = useState<Option[]>([]);
+	const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
 	// Get store values and actions
 	const { searchRestaurants, isLoading, error, searchParams } =
 		useRestaurantStore();
+
+	// Load category options
+	useEffect(() => {
+		setCategoryOptions(getRestaurantCategories());
+
+		// If there are initial categories in searchParams, set them
+		if (searchParams.categories) {
+			setSelectedCategories(stringToCategories(searchParams.categories));
+		}
+	}, [searchParams.categories]);
 
 	// Initialize react-hook-form
 	const form = useForm<SearchFormValues>({
@@ -115,6 +134,14 @@ const SearchForm = () => {
 			: [...prices, price];
 
 		form.setValue("price", newPrices.join(","), { shouldValidate: true });
+	};
+
+	// Handle category selection changes
+	const handleCategoryChange = (selected: string[]) => {
+		setSelectedCategories(selected);
+		form.setValue("categories", categoriesToString(selected), {
+			shouldValidate: true,
+		});
 	};
 
 	// Handle form submission
@@ -234,6 +261,29 @@ const SearchForm = () => {
 								);
 							})}
 						</div>
+
+						<FormField
+							control={form.control}
+							name="categories"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Categories</FormLabel>
+									<FormControl>
+										<MultiSelect
+											options={categoryOptions}
+											selected={selectedCategories}
+											onChange={handleCategoryChange}
+											placeholder="Select restaurant categories"
+											className="min-h-9"
+										/>
+									</FormControl>
+									<FormDescription>
+										Select one or more restaurant categories
+									</FormDescription>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
 					</div>
 
 					<FormField
@@ -290,20 +340,6 @@ const SearchForm = () => {
 												<SelectItem value="distance">Distance</SelectItem>
 											</SelectContent>
 										</Select>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-
-							<FormField
-								control={form.control}
-								name="categories"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Categories (comma-separated)</FormLabel>
-										<FormControl>
-											<Input {...field} placeholder="italian,pizza,chinese" />
-										</FormControl>
 										<FormMessage />
 									</FormItem>
 								)}
