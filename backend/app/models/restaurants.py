@@ -247,3 +247,9 @@ class MapViewResponse(BaseModel):
     locations: List[MapLocation]
     total: int
     region: Optional[Region] = None
+
+class CombinedResponse(BaseModel):
+    """Combined response for both map and list views."""
+
+    map: MapViewResponse
+    list: RestaurantResponse

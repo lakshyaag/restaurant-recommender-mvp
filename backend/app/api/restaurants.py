@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Query
 from typing import Union, Optional
 from app.models.restaurants import (
+    CombinedResponse,
     RestaurantSearchParams,
     RestaurantResponse,
     MapViewResponse,
@@ -11,7 +12,7 @@ from app.services.yelp import yelp_service
 router = APIRouter()
 
 
-@router.get("/restaurants", response_model=Union[RestaurantResponse, MapViewResponse])
+@router.get("/restaurants", response_model=CombinedResponse)
 async def search_restaurants(
     # Location parameters (at least one is required)
     location: Optional[str] = Query(

@@ -66,27 +66,27 @@ class YelpService:
         logger.debug(f"Yelp API request: {endpoint} with params: {request_params}")
 
         try:
-            # Make the API request
-            response = requests.get(
-                endpoint, headers=self.headers, params=request_params
-            )
-            response.raise_for_status()
+            # # Make the API request
+            # response = requests.get(
+            #     endpoint, headers=self.headers, params=request_params
+            # )
+            # response.raise_for_status()
 
-            # Parse the response
-            data = response.json()
-            logger.debug(
-                f"Yelp API response received: {len(data.get('businesses', []))} businesses"
-            )
+            # # Parse the response
+            # data = response.json()
+            # logger.debug(
+            #     f"Yelp API response received: {len(data.get('businesses', []))} businesses"
+            # )
 
-            # For debugging
-            self._save_response_to_file(data, "yelp_response.json")
+            # # For debugging
+            # self._save_response_to_file(data, "yelp_response.json")
 
-            return data
+            # return data
 
             # Load the response from the file
-            # with open("yelp_response.json", "r") as f:
-            #     data = json.load(f)
-            # return data
+            with open("yelp_response.json", "r") as f:
+                data = json.load(f)
+            return data
 
         except requests.exceptions.RequestException as e:
             logger.error(f"Yelp API request failed: {str(e)}")
@@ -106,10 +106,13 @@ class YelpService:
             A formatted response object.
         """
         # Different response formats based on view type
-        if params.view_type == "map":
-            return self._format_map_response(data, params)
-        else:
-            return self._format_list_response(data, params)
+        map_response = self._format_map_response(data, params)
+        list_response = self._format_list_response(data, params)
+
+        return {
+            "map": map_response,
+            "list": list_response,
+        }
 
     def _format_list_response(
         self, data: Dict[str, Any], params: RestaurantSearchParams
