@@ -20,7 +20,7 @@ const Header = () => {
 		<header
 			className={cn(
 				"fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300",
-				scrolled ? "glass shadow-sm" : "bg-transparent",
+				scrolled ? "glass shadow-sm backdrop-blur-sm" : "bg-transparent",
 			)}
 		>
 			<Container>

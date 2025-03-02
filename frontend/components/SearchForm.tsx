@@ -47,7 +47,7 @@ export interface SearchParams {
 	reservation_date?: string;
 	reservation_time?: string;
 	reservation_covers?: number;
-	view_type?: string;
+	view_type?: "list" | "map";
 }
 
 // Create Zod validation schema based on API parameters
@@ -163,7 +163,7 @@ const SearchForm = () => {
 							name="term"
 							render={({ field }) => (
 								<FormItem className="space-y-2">
-									<FormLabel>Cuisine or Keyword</FormLabel>
+									<FormLabel>Search for</FormLabel>
 									<FormControl>
 										<div className="relative">
 											<Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />

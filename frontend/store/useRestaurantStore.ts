@@ -44,6 +44,8 @@ interface RestaurantState {
 	searchParams: SearchParams;
 	restaurants: Restaurant[];
 	totalResults: number;
+	hasSearched: boolean;
+	map?: MapViewResponse;
 
 	// Actions
 	setSearchParams: (params: SearchParams) => void;
@@ -51,18 +53,47 @@ interface RestaurantState {
 	resetSearch: () => void;
 }
 
-interface ApiResponse {
+interface RestaurantResponse {
 	restaurants: Restaurant[];
 	total: number;
 	region: {
 		center: {
 			latitude: number;
 			longitude: number;
-		}
+		};
 	};
 	offset?: number;
 	limit?: number;
 	location?: string;
+}
+
+interface MapLocation {
+	id: string;
+	name: string;
+	coordinates: {
+		latitude: number;
+		longitude: number;
+	};
+	rating: number;
+	price?: string;
+	categories: string[];
+	image_url?: string;
+}
+
+interface MapViewResponse {
+	locations: MapLocation[];
+	total: number;
+	region: {
+		center: {
+			latitude: number;
+			longitude: number;
+		};
+	};
+}
+
+interface ApiResponse {
+	map: MapViewResponse;
+	list: RestaurantResponse;
 }
 
 const defaultSearchParams: SearchParams = {
@@ -74,7 +105,7 @@ const defaultSearchParams: SearchParams = {
 	sort_by: "best_match" as const,
 	limit: 20,
 	offset: 0,
-	view_type: "list",
+	view_type: "list" as const,
 };
 
 const useRestaurantStore = create<RestaurantState>((set, get) => ({
@@ -84,6 +115,8 @@ const useRestaurantStore = create<RestaurantState>((set, get) => ({
 	searchParams: defaultSearchParams,
 	restaurants: [],
 	totalResults: 0,
+	hasSearched: false,
+	map: undefined,
 
 	// Actions
 	setSearchParams: (params) =>
@@ -94,7 +127,12 @@ const useRestaurantStore = create<RestaurantState>((set, get) => ({
 	searchRestaurants: async (params) => {
 		try {
 			// Update search params in store
-			set({ isLoading: true, error: null, searchParams: params });
+			set({
+				isLoading: true,
+				error: null,
+				searchParams: params,
+				hasSearched: true,
+			});
 
 			// Make API request
 			const response = await fetch("/api/search", {
@@ -110,12 +148,13 @@ const useRestaurantStore = create<RestaurantState>((set, get) => ({
 				throw new Error(errorData.message || "Failed to fetch restaurants");
 			}
 
-			const data = await response.json() as ApiResponse;
+			const data = (await response.json()) as ApiResponse;
 
 			// Update store with results
 			set({
-				restaurants: data.restaurants || [],
-				totalResults: data.total || 0,
+				restaurants: data.list.restaurants || [],
+				totalResults: data.list.total || 0,
+				map: data.map,
 				isLoading: false,
 			});
 		} catch (error) {
@@ -133,6 +172,7 @@ const useRestaurantStore = create<RestaurantState>((set, get) => ({
 			restaurants: [],
 			totalResults: 0,
 			error: null,
+			hasSearched: false,
 		}),
 }));
 
