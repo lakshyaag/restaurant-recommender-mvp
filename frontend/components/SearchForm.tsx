@@ -214,7 +214,10 @@ const SearchForm = () => {
 							<FormItem className="space-y-2">
 								<div className="flex justify-between">
 									<FormLabel>
-										Search Radius: {(field.value / 1000).toFixed(1)} km
+										Search Radius:{" "}
+										{field.value < 1000
+											? `${field.value} m`
+											: `${(field.value / 1000).toFixed(1)} km`}
 									</FormLabel>
 								</div>
 								<FormControl>
@@ -224,9 +227,9 @@ const SearchForm = () => {
 										render={({ field: { value, onChange } }) => (
 											<Slider
 												value={[value]}
-												min={1000}
-												max={40000}
-												step={1000}
+												min={100}
+												max={10000}
+												step={100}
 												onValueChange={(vals) => onChange(vals[0])}
 											/>
 										)}
@@ -364,7 +367,7 @@ const SearchForm = () => {
 								name="limit"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Results Limit</FormLabel>
+										<FormLabel>Maximum Results</FormLabel>
 										<FormControl>
 											<Input
 												{...field}
@@ -378,61 +381,6 @@ const SearchForm = () => {
 									</FormItem>
 								)}
 							/>
-
-							<div className="space-y-2">
-								<FormLabel>Coordinates (optional)</FormLabel>
-								<div className="grid grid-cols-2 gap-4">
-									<FormField
-										control={form.control}
-										name="latitude"
-										render={({ field }) => (
-											<FormItem>
-												<FormControl>
-													<Input
-														{...field}
-														type="number"
-														placeholder="Latitude (-90 to 90)"
-														value={field.value ?? ""}
-														onChange={(e) =>
-															field.onChange(
-																e.target.value
-																	? Number(e.target.value)
-																	: undefined,
-															)
-														}
-													/>
-												</FormControl>
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-
-									<FormField
-										control={form.control}
-										name="longitude"
-										render={({ field }) => (
-											<FormItem>
-												<FormControl>
-													<Input
-														{...field}
-														type="number"
-														placeholder="Longitude (-180 to 180)"
-														value={field.value ?? ""}
-														onChange={(e) =>
-															field.onChange(
-																e.target.value
-																	? Number(e.target.value)
-																	: undefined,
-															)
-														}
-													/>
-												</FormControl>
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-								</div>
-							</div>
 						</div>
 					)}
 
@@ -454,7 +402,12 @@ const SearchForm = () => {
 									<FormItem>
 										<FormLabel>Reservation Date</FormLabel>
 										<FormControl>
-											<Input {...field} type="date" placeholder="YYYY-MM-DD" />
+											<Input
+												{...field}
+												type="date"
+												placeholder="YYYY-MM-DD"
+												onChange={(e) => field.onChange(e.target.value)}
+											/>
 										</FormControl>
 										<FormMessage />
 									</FormItem>
@@ -468,7 +421,12 @@ const SearchForm = () => {
 									<FormItem>
 										<FormLabel>Reservation Time</FormLabel>
 										<FormControl>
-											<Input {...field} type="time" placeholder="HH:MM" />
+											<Input
+												{...field}
+												type="time"
+												placeholder="HH:MM"
+												onChange={(e) => field.onChange(e.target.value)}
+											/>
 										</FormControl>
 										<FormMessage />
 									</FormItem>

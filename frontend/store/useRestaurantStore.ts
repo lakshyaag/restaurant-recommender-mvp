@@ -70,13 +70,13 @@ interface RestaurantResponse {
 }
 
 const defaultSearchParams: SearchParams = {
-	location: "2 Bloor St E 29th Floor, Toronto, ON M4W 1A8",
+	location: "2 Bloor St E, Toronto, ON M4W 1A8",
 	term: "",
-	radius: 2000,
+	radius: 500,
 	price: "",
 	open_now: false,
 	sort_by: "best_match" as const,
-	limit: 30,
+	limit: 10,
 	offset: 0,
 	view_type: "list" as const,
 };
