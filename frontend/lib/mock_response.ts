@@ -1054,4 +1054,275 @@ export const response = {
 	offset: 0,
 	limit: 20,
 	location: "Toronto",
+	map: {
+		locations: [
+			{
+				id: "w5-llUi5t59YZRI_dOSi0w",
+				name: "Library Bar",
+				coordinates: {
+					latitude: 43.64583140000001,
+					longitude: -79.3819623,
+				},
+				rating: 4.1,
+				price: "$$$",
+				categories: ["Lounges", "Canadian (New)", "Cocktail Bars"],
+				image_url:
+					"https://s3-media2.fl.yelpcdn.com/bphoto/qgnwJ02ZWN2cxQyGbqrLPA/o.jpg",
+			},
+			{
+				id: "B70iTJjcPkuYn8ouUewWgw",
+				name: "Gusto 101",
+				coordinates: {
+					latitude: 43.645002131066,
+					longitude: -79.400309337027,
+				},
+				rating: 4,
+				price: "$$",
+				categories: ["Italian"],
+				image_url:
+					"https://s3-media4.fl.yelpcdn.com/bphoto/nVqA7kB5QuXBWX8Nq9-nQQ/o.jpg",
+			},
+			{
+				id: "uPa5hrWmHm0n1l4MSyVMGQ",
+				name: "Aloette",
+				coordinates: {
+					latitude: 43.64855831176563,
+					longitude: -79.395963,
+				},
+				rating: 4.3,
+				price: "$$$",
+				categories: ["French", "Bistros", "Diners"],
+				image_url:
+					"https://s3-media1.fl.yelpcdn.com/bphoto/pEgFwRE75bhFOUnF9vrbzQ/o.jpg",
+			},
+			{
+				id: "_tpQc2e3bZHy1JemcP80gA",
+				name: "Piccolo Caffe E Vino",
+				coordinates: {
+					latitude: 43.648050973375135,
+					longitude: -79.39012375952454,
+				},
+				rating: 4.2,
+				price: "$$",
+				categories: ["Wine Bars", "Cafes"],
+				image_url:
+					"https://s3-media1.fl.yelpcdn.com/bphoto/UiCQevtk-OJeh28o1RWPcQ/o.jpg",
+			},
+			{
+				id: "r_BrIgzYcwo1NAuG9dLbpg",
+				name: "Pai Northern Thai Kitchen",
+				coordinates: {
+					latitude: 43.64784,
+					longitude: -79.38872,
+				},
+				rating: 4.4,
+				price: "$$",
+				categories: ["Thai"],
+				image_url:
+					"https://s3-media4.fl.yelpcdn.com/bphoto/uAnTcmLEQJWkCUOtvZMALA/o.jpg",
+			},
+			{
+				id: "z9BHVx8OLPCJGD4ogzR6Yg",
+				name: "Bar Poet",
+				coordinates: {
+					latitude: 43.643732,
+					longitude: -79.4223358,
+				},
+				rating: 3.9,
+				price: "$$",
+				categories: ["Pizza", "Cocktail Bars"],
+				image_url:
+					"https://s3-media3.fl.yelpcdn.com/bphoto/DIT5tWgz6nsTc5gFPqcI0Q/o.jpg",
+			},
+			{
+				id: "QFPS9JBNdOOHVP0C3pSslw",
+				name: "Earls Kitchen + Bar",
+				coordinates: {
+					latitude: 43.6480134620711,
+					longitude: -79.3839246431072,
+				},
+				rating: 3.6,
+				price: "$$",
+				categories: ["Canadian (New)", "Cocktail Bars", "Seafood"],
+				image_url:
+					"https://s3-media1.fl.yelpcdn.com/bphoto/MWUsBzmRUOuUSUjW1erOdg/o.jpg",
+			},
+			{
+				id: "SPj8L5VMep_OhkoNz-WLQg",
+				name: "The Chase",
+				coordinates: {
+					latitude: 43.6510568545686,
+					longitude: -79.379271238786,
+				},
+				rating: 3.7,
+				price: "$$$",
+				categories: ["Seafood", "Venues & Event Spaces", "Lounges"],
+				image_url:
+					"https://s3-media4.fl.yelpcdn.com/bphoto/j-53fs418GMCbfjEjgWzUQ/o.jpg",
+			},
+			{
+				id: "pwtTn72x7Nqp1imaXw9LvQ",
+				name: "Mercatto",
+				coordinates: {
+					latitude: 43.66018257611177,
+					longitude: -79.38755551742875,
+				},
+				rating: 3.5,
+				price: "$$",
+				categories: ["Italian"],
+				image_url:
+					"https://s3-media2.fl.yelpcdn.com/bphoto/HR3H5-LZpegS7JRDAqkmuw/o.jpg",
+			},
+			{
+				id: "fRu_POqPowUo6nHSRMjOPw",
+				name: "Victor",
+				coordinates: {
+					latitude: 43.645905,
+					longitude: -79.391166,
+				},
+				rating: 3.9,
+				price: "$$$",
+				categories: ["American"],
+				image_url:
+					"https://s3-media1.fl.yelpcdn.com/bphoto/9jg7cuuE60NNAK-V10qwnA/o.jpg",
+			},
+			{
+				id: "yY3jNsrpCyKTqQuRuLV8gw",
+				name: "Cactus Club Cafe",
+				coordinates: {
+					latitude: 43.64950420768667,
+					longitude: -79.38251803088575,
+				},
+				rating: 3.8,
+				price: "$$",
+				categories: ["Cocktail Bars", "Canadian (New)"],
+				image_url:
+					"https://s3-media3.fl.yelpcdn.com/bphoto/1fob77kJSVUCa_IgnubnNQ/o.jpg",
+			},
+			{
+				id: "C6vH0qzmcerMkiJy3VO9qA",
+				name: "Estiatorio Volos",
+				coordinates: {
+					latitude: 43.65016,
+					longitude: -79.38477,
+				},
+				rating: 4.1,
+				price: "$$$",
+				categories: ["Seafood", "Greek", "Mediterranean"],
+				image_url:
+					"https://s3-media1.fl.yelpcdn.com/bphoto/BQLS5_pZ27tSXBWfgRE3bg/o.jpg",
+			},
+			{
+				id: "dd3GZs6zW2t7BM0cbxAzvg",
+				name: "La Palette",
+				coordinates: {
+					latitude: 43.64797,
+					longitude: -79.40098,
+				},
+				rating: 4,
+				price: "$$$",
+				categories: ["French", "Desserts", "Bars"],
+				image_url:
+					"https://s3-media3.fl.yelpcdn.com/bphoto/qRtN_JD40kG7knQr981tvQ/o.jpg",
+			},
+			{
+				id: "aLcFhMe6DDJ430zelCpd2A",
+				name: "Khao San Road",
+				coordinates: {
+					latitude: 43.646412027881496,
+					longitude: -79.39361985450327,
+				},
+				rating: 3.9,
+				price: "$$",
+				categories: ["Thai"],
+				image_url:
+					"https://s3-media3.fl.yelpcdn.com/bphoto/zXH3nLugTC3G5_Elr7Lq-w/o.jpg",
+			},
+			{
+				id: "ocLnCE2E29j-CoBQj1yaSA",
+				name: "Cafe Landwer",
+				coordinates: {
+					latitude: 43.64875658634099,
+					longitude: -79.38516232117846,
+				},
+				rating: 4.2,
+				price: "$$",
+				categories: ["Cafes", "Breakfast & Brunch", "Mediterranean"],
+				image_url:
+					"https://s3-media2.fl.yelpcdn.com/bphoto/zmB450YCFGvILdcb1fgU1A/o.jpg",
+			},
+			{
+				id: "G2Z-4U6cDsDQvT6v3FzYmA",
+				name: "Ricarda's",
+				coordinates: {
+					latitude: 43.6484621,
+					longitude: -79.3936807,
+				},
+				rating: 3.8,
+				price: "$$$",
+				categories: ["Mediterranean", "Italian", "Sandwiches"],
+				image_url:
+					"https://s3-media2.fl.yelpcdn.com/bphoto/IDYeZz36ajQNzuQ6F5aaQg/o.jpg",
+			},
+			{
+				id: "hDy-uY7Vy_TZdGBzw59lhA",
+				name: "Saku Sushi",
+				coordinates: {
+					latitude: 43.6482,
+					longitude: -79.4003,
+				},
+				rating: 4.1,
+				price: "$$",
+				categories: ["Sushi Bars", "Japanese"],
+				image_url:
+					"https://s3-media2.fl.yelpcdn.com/bphoto/8TR7R7UI1rnzhqwkvuT_vQ/o.jpg",
+			},
+			{
+				id: "sKrt4CMGyG8YAjxVkk4hPQ",
+				name: "Fusaro's Kitchen",
+				coordinates: {
+					latitude: 43.64808,
+					longitude: -79.39556,
+				},
+				rating: 4.1,
+				price: "$$",
+				categories: ["Italian", "Pizza"],
+				image_url:
+					"https://s3-media1.fl.yelpcdn.com/bphoto/7c0B8Bv4sWNGcCVqICGc1Q/o.jpg",
+			},
+			{
+				id: "esnvHQxunLTAckQpntqbCg",
+				name: "Stelvio",
+				coordinates: {
+					latitude: 43.65168,
+					longitude: -79.40769,
+				},
+				rating: 3.9,
+				price: "$$",
+				categories: ["Italian"],
+				image_url:
+					"https://s3-media3.fl.yelpcdn.com/bphoto/GTauYPG3BdOdQD2O4J4qXg/o.jpg",
+			},
+			{
+				id: "Q4RSmF0s-AkaegrLFCLEbg",
+				name: "Donatello Restaurant",
+				coordinates: {
+					latitude: 43.657425,
+					longitude: -79.383474,
+				},
+				rating: 3.8,
+				price: "$$$",
+				categories: ["Italian", "Seafood", "Wine Bars"],
+				image_url:
+					"https://s3-media4.fl.yelpcdn.com/bphoto/eMRM0wwaYNHe_W-R1WvIrQ/o.jpg",
+			},
+		],
+		total: 709,
+		region: {
+			center: {
+				latitude: 43.652469415075885,
+				longitude: -79.39802169799805,
+			},
+		},
+	},
 };

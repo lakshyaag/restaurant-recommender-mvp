@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Star, MapPin, Phone, ExternalLink, Clock } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface RestaurantDetailModalProps {
 	restaurant: Restaurant;
@@ -107,56 +108,84 @@ const RestaurantDetailModal = ({
 				</div>
 
 				{/* Details */}
-				<div className="space-y-4">
-					<div className="flex items-start">
-						<MapPin className="h-5 w-5 mr-3 text-muted-foreground shrink-0 mt-0.5" />
-						<div>
-							<h4 className="font-medium">Location</h4>
-							<p>{restaurant.location.display_address.join(", ")}</p>
-							{restaurant.distance && (
-								<p className="text-sm text-muted-foreground mt-1">
-									{formatDistance(restaurant.distance)}
-								</p>
+				<Tabs defaultValue="details" className="w-full">
+					<TabsList className="mb-4 w-full">
+						<TabsTrigger value="details" className="w-full">
+							Details
+						</TabsTrigger>
+						<TabsTrigger value="map" className="w-full">
+							Map
+						</TabsTrigger>
+					</TabsList>
+					<TabsContent value="details">
+						<div className="space-y-4">
+							<div className="flex items-start">
+								<MapPin className="h-5 w-5 mr-3 text-muted-foreground shrink-0 mt-0.5" />
+								<div>
+									<h4 className="font-medium">Location</h4>
+									<p>{restaurant.location.display_address.join(", ")}</p>
+									{restaurant.distance && (
+										<p className="text-sm text-muted-foreground mt-1">
+											{formatDistance(restaurant.distance)}
+										</p>
+									)}
+								</div>
+							</div>
+
+							{restaurant.display_phone && (
+								<div className="flex items-start">
+									<Phone className="h-5 w-5 mr-3 text-muted-foreground shrink-0 mt-0.5" />
+									<div>
+										<h4 className="font-medium">Contact</h4>
+										<p>{restaurant.display_phone}</p>
+									</div>
+								</div>
+							)}
+
+							{restaurant.attributes?.menu_url && (
+								<div className="flex items-start">
+									<ExternalLink className="h-5 w-5 mr-3 text-muted-foreground shrink-0 mt-0.5" />
+									<div>
+										<h4 className="font-medium">Menu</h4>
+										<Link
+											href={restaurant.attributes.menu_url}
+											target="_blank"
+											className="text-primary hover:underline"
+										>
+											View Menu
+										</Link>
+									</div>
+								</div>
+							)}
+
+							{restaurant.attributes?.waitlist_reservation && (
+								<div className="flex items-start">
+									<Clock className="h-5 w-5 mr-3 text-muted-foreground shrink-0 mt-0.5" />
+									<div>
+										<h4 className="font-medium">Reservations</h4>
+										<p className="text-green-600">Reservations available</p>
+									</div>
+								</div>
 							)}
 						</div>
-					</div>
+					</TabsContent>
 
-					{restaurant.display_phone && (
-						<div className="flex items-start">
-							<Phone className="h-5 w-5 mr-3 text-muted-foreground shrink-0 mt-0.5" />
-							<div>
-								<h4 className="font-medium">Contact</h4>
-								<p>{restaurant.display_phone}</p>
-							</div>
+					<TabsContent value="map">
+						<div className="aspect-video rounded-md bg-muted flex items-center justify-center">
+							<iframe
+								width="100%"
+								height="100%"
+								style={{ border: 0 }}
+								loading="lazy"
+								allowFullScreen
+								title="Google Maps"
+								src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(
+									`${restaurant.name} ${restaurant.location.display_address.join(", ")}`,
+								)}`}
+							/>
 						</div>
-					)}
-
-					{restaurant.attributes?.menu_url && (
-						<div className="flex items-start">
-							<ExternalLink className="h-5 w-5 mr-3 text-muted-foreground shrink-0 mt-0.5" />
-							<div>
-								<h4 className="font-medium">Menu</h4>
-								<Link
-									href={restaurant.attributes.menu_url}
-									target="_blank"
-									className="text-primary hover:underline"
-								>
-									View Menu
-								</Link>
-							</div>
-						</div>
-					)}
-
-					{restaurant.attributes?.waitlist_reservation && (
-						<div className="flex items-start">
-							<Clock className="h-5 w-5 mr-3 text-muted-foreground shrink-0 mt-0.5" />
-							<div>
-								<h4 className="font-medium">Reservations</h4>
-								<p className="text-green-600">Reservations available</p>
-							</div>
-						</div>
-					)}
-				</div>
+					</TabsContent>
+				</Tabs>
 
 				<DialogFooter className="mt-6">
 					<Button variant="outline" onClick={onClose}>

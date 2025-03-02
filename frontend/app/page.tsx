@@ -11,6 +11,7 @@ import { Card, CardDescription } from "@/components/ui/card";
 import { Loader2, List, MapIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 export default function Home() {
 	// Get restaurant state from Zustand store
@@ -22,6 +23,7 @@ export default function Home() {
 		searchParams,
 		hasSearched,
 		setSearchParams,
+		map,
 	} = useRestaurantStore();
 
 	// Determine view type (list or map)
@@ -29,6 +31,12 @@ export default function Home() {
 
 	// Toggle view type between list and map
 	const toggleViewType = () => {
+		if (viewType === "list") {
+			toast.error(
+				"Map view is implemented using client-side rendering since Google Maps API is paid. Please note that zoom and pan functionality is not supported.",
+			);
+		}
+
 		setSearchParams({
 			...searchParams,
 			view_type: viewType === "list" ? "map" : "list",
@@ -177,7 +185,12 @@ export default function Home() {
 													transition={{ duration: 0.3 }}
 												>
 													{viewType === "map" ? (
-														<RestaurantMap restaurants={restaurants} />
+														map && (
+															<RestaurantMap
+																restaurants={restaurants}
+																map={map}
+															/>
+														)
 													) : (
 														<RestaurantList restaurants={restaurants} />
 													)}

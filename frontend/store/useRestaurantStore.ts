@@ -80,7 +80,7 @@ interface MapLocation {
 	image_url?: string;
 }
 
-interface MapViewResponse {
+export interface MapViewResponse {
 	locations: MapLocation[];
 	total: number;
 	region: {
