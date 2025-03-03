@@ -13,6 +13,7 @@ import { Star, MapPin, Phone, ExternalLink, Clock } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import RestaurantReviews from "./RestaurantReviews";
 
 interface RestaurantDetailModalProps {
 	restaurant: Restaurant;
@@ -113,6 +114,9 @@ const RestaurantDetailModal = ({
 						<TabsTrigger value="details" className="w-full">
 							Details
 						</TabsTrigger>
+						<TabsTrigger value="reviews" className="w-full">
+							Reviews
+						</TabsTrigger>
 						<TabsTrigger value="map" className="w-full">
 							Map
 						</TabsTrigger>
@@ -168,6 +172,10 @@ const RestaurantDetailModal = ({
 								</div>
 							)}
 						</div>
+					</TabsContent>
+
+					<TabsContent value="reviews">
+						<RestaurantReviews restaurant={restaurant} />
 					</TabsContent>
 
 					<TabsContent value="map">

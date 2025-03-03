@@ -2,7 +2,7 @@
 
 1. In your own words, describe the problem that your tool is solving and why partners should use it.
 
-Bain Partners in Toronto need a fast, reliable way to choose restaurants for client engagements. Presumably, the current process is to rely on personal experience, recommendations from colleagues, or generic review sites, which could be inefficient and inconsistent from a quality standpoint. My tool, a web-based restaurant recommender, addresses this by offering tailored suggestions based on cuisine, location, price, and client suitability (e.g., quiet settings, high ratings). Partners should use it because it cuts through the noise of generic search platforms, and provides a direct interface to search for restaurants that meet their specific needs.
+Bain Partners in Toronto need a fast, reliable way to choose restaurants for client engagements. Presumably, the current process is to rely on personal experience, recommendations from colleagues, or generic review sites, which could be inefficient and inconsistent from a quality standpoint. My tool, a web-based restaurant recommender, addresses this by offering tailored suggestions based on a client profile. This is different from traditional search engines that require place-specific information and do not take into account the specific needs of the client, which is information that a partner would have based on their relationship with the client.
 
 2. Tell us what pieces of software you think are necessary to develop for the working prototype and how they are related. We call each application (web, mobile or desktop), each API, each batch process that can be deployed independently a piece of software. Support yourself with a diagram if you think necessary.
 
@@ -45,4 +45,6 @@ This method balances structure with agility, ideal for a short, solo project. My
 
 ## Additional Notes
 
-- With access to Google Maps API, each restaurant listing can have the reviews pulled in. Then, we can use LLMs to summarize the reviews and provide a quick overview of the restaurant, while allowing the user to ask specific questions
+- With access to Google Maps API, each restaurant listing can have the reviews pulled in. Then, we can use LLMs to summarize the reviews and provide a quick overview of the restaurant, while allowing the user to ask specific questions.
+- The reviews data can also be used to build a "business meeting suitability" score for each restaurant, with levels for noise, privacy, and formality that can be calculated from the reviews using LLMs.
+- The LLM-based recommendation engine can be refined further by improving the prompts and adding more context about the event.
