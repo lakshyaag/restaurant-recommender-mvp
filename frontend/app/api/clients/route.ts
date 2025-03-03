@@ -2,6 +2,8 @@ import { type NextRequest, NextResponse } from "next/server";
 import type { ClientProfileFormValues } from "@/components/ClientProfileForm";
 import { API_URL } from "@/lib/api";
 
+export const maxDuration = 60;
+
 /**
  * Handles client profile submissions
  * This endpoint processes client information and returns restaurant search params

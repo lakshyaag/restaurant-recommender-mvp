@@ -2,6 +2,8 @@ import { type NextRequest, NextResponse } from "next/server";
 import type { SearchParams } from "@/components/SearchForm";
 import { API_URL } from "@/lib/api";
 
+export const maxDuration = 60;
+
 export async function POST(request: NextRequest) {
 	try {
 		// Get search params from request body
