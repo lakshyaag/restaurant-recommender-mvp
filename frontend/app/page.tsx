@@ -1,19 +1,25 @@
 "use client";
 
+import { useState } from "react";
 import { HeroSection } from "@/components/HeroSection";
 import Container from "@/components/layout/Container";
 import Header from "@/components/layout/Header";
 import SearchForm from "@/components/SearchForm";
+import ClientProfileForm from "@/components/ClientProfileForm";
 import useRestaurantStore from "@/store/useRestaurantStore";
 import RestaurantList from "@/components/RestaurantList";
 import RestaurantMap from "@/components/RestaurantMap";
 import { Card, CardDescription } from "@/components/ui/card";
-import { Loader2, List, MapIcon } from "lucide-react";
+import { Loader2, List, MapIcon, User, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
+	// Search type state (traditional or client-focused)
+	const [searchType, setSearchType] = useState<"traditional" | "client">("client");
+
 	// Get restaurant state from Zustand store
 	const {
 		restaurants,
@@ -57,7 +63,29 @@ export default function Home() {
 							transition={{ duration: 0.6, ease: "easeOut" }}
 							className="animate-fade-up"
 						>
-							<SearchForm />
+							{/* Search Type Tabs */}
+							<Tabs 
+								defaultValue="client" 
+								className="mb-6" 
+								onValueChange={(value) => setSearchType(value as "traditional" | "client")}
+							>
+								<TabsList className="grid w-full grid-cols-2 mb-6">
+									<TabsTrigger value="client" className="flex items-center gap-2">
+										<User className="h-4 w-4" />
+										<span>Client Profile</span>
+									</TabsTrigger>
+									<TabsTrigger value="traditional" className="flex items-center gap-2">
+										<Search className="h-4 w-4" />
+										<span>Detailed Search</span>
+									</TabsTrigger>
+								</TabsList>
+								<TabsContent value="client">
+									<ClientProfileForm />
+								</TabsContent>
+								<TabsContent value="traditional">
+									<SearchForm />
+								</TabsContent>
+							</Tabs>
 						</motion.div>
 
 						{/* Initial state message */}
@@ -76,13 +104,27 @@ export default function Home() {
 											animate={{ scale: 1 }}
 											transition={{ duration: 0.5, delay: 0.5 }}
 										>
-											<h3 className="text-2xl font-bold mb-3">
-												Find Your Perfect Dining Spot
-											</h3>
-											<CardDescription className="text-base mb-4">
-												Enter your location and preferences in the search form
-												above to discover amazing restaurants nearby!
-											</CardDescription>
+											{searchType === "traditional" ? (
+												<>
+													<h3 className="text-2xl font-bold mb-3">
+														Find Your Perfect Dining Spot
+													</h3>
+													<CardDescription className="text-base mb-4">
+														Enter your location and preferences in the search form
+														above to discover amazing restaurants nearby!
+													</CardDescription>
+												</>
+											) : (
+												<>
+													<h3 className="text-2xl font-bold mb-3">
+														Plan the Perfect Client Meeting
+													</h3>
+													<CardDescription className="text-base mb-4">
+														Tell us about your client and meeting purpose, and we'll
+														recommend restaurants tailored to your specific needs.
+													</CardDescription>
+												</>
+											)}
 										</motion.div>
 									</Card>
 								</motion.div>

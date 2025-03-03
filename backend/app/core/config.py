@@ -30,6 +30,9 @@ class Settings(BaseModel):
     YELP_CLIENT_ID: Optional[str] = os.getenv("YELP_CLIENT_ID")
     YELP_API_URL: str = "https://api.yelp.com/v3"
 
+    # OpenAI API configuration
+    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
+
     # Default search parameters
     DEFAULT_LOCATION: str = "Toronto"
     DEFAULT_TERM: str = "restaurant"
@@ -47,3 +50,6 @@ settings = Settings()
 # Validation
 if not settings.YELP_API_KEY:
     raise ValueError("YELP_API_KEY environment variable must be set")
+
+if not settings.OPENAI_API_KEY:
+    raise ValueError("OPENAI_API_KEY environment variable must be set")

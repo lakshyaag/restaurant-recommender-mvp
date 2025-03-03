@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 from app.core.config import settings
-from app.api import health, restaurants
+from app.api import health, restaurants, client_profile
 
 # Configure logging
 logging.basicConfig(
@@ -38,7 +38,7 @@ def create_app() -> FastAPI:
     # Include API routers
     app.include_router(health.router, prefix=settings.API_PREFIX)
     app.include_router(restaurants.router, prefix=settings.API_PREFIX)
-
+    app.include_router(client_profile.router, prefix=settings.API_PREFIX)
     return app
 
 
