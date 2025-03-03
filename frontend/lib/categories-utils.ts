@@ -1,4 +1,4 @@
-import categoriesData from './categories.json';
+import categoriesData from './constants/categories.json';
 import type { Option } from '@/components/ui/multi-select';
 
 /**
@@ -8,9 +8,7 @@ import type { Option } from '@/components/ui/multi-select';
 export function getRestaurantCategories(): Option[] {
   // Filter categories that are related to restaurants
   const restaurantCategories = categoriesData.categories.filter(category => 
-    category.parent_aliases.includes('restaurants') || 
-    category.alias === 'restaurants' ||
-    category.parent_aliases.includes('food')
+    category.parent_aliases.includes('restaurants') || category.alias === 'restaurants'
   );
 
   // Sort categories alphabetically by title

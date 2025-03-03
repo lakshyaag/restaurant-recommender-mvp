@@ -42,3 +42,7 @@ This method balances structure with agility, ideal for a short, solo project. My
 - What metrics should we track to measure success?
 - Are there any data privacy concerns or restrictions I should be aware of when integrating with external APIs or storing partner/client information?
 - Is there a preferred frontend framework or design system I should use to maintain consistency with other Bain internal tools?
+
+## Additional Notes
+
+- With access to Google Maps API, each restaurant listing can have the reviews pulled in. Then, we can use LLMs to summarize the reviews and provide a quick overview of the restaurant, while allowing the user to ask specific questions
