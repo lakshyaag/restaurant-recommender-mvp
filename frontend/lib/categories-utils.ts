@@ -40,4 +40,4 @@ export function categoriesToString(categories: string[]): string {
 export function stringToCategories(categoriesString: string): string[] {
   if (!categoriesString) return [];
   return categoriesString.split(',').filter(Boolean);
-} 
+}

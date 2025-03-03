@@ -76,7 +76,7 @@ export default function Home() {
 									</TabsTrigger>
 									<TabsTrigger value="traditional" className="flex items-center gap-2">
 										<Search className="h-4 w-4" />
-										<span>Quick Search</span>
+										<span>Detailed Search</span>
 									</TabsTrigger>
 								</TabsList>
 								<TabsContent value="client">

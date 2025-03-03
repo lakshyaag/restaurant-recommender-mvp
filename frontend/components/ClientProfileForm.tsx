@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { MultiSelect } from "@/components/ui/multi-select";
 import { toast } from "sonner";
-import { categoriesToString, getRestaurantCategories, stringToCategories } from "@/lib/categories-utils";
+import { categoriesToString, getRestaurantCategories } from "@/lib/categories-utils";
 import type { Option } from "@/components/ui/multi-select";
 import useRestaurantStore from "@/store/useRestaurantStore";
 import {
@@ -13,10 +13,6 @@ import {
 	MEETING_PURPOSES,
 	MEETING_DURATIONS,
 	RELATIONSHIP_STATUSES,
-	type ClientDesignation,
-	type MeetingPurpose,
-	type MeetingDuration,
-	type RelationshipStatus
 } from "@/lib/constants/client-form-options";
 
 import {
@@ -49,6 +45,13 @@ const clientProfileSchema = z.object({
 	meetingPurpose: z.enum([...MEETING_PURPOSES.map(item => item.value)] as [string, ...string[]], {
 		required_error: "Please select the purpose of the meeting",
 	}),
+	otherPurpose: z.string().optional()
+		.refine(value => {
+			// If meeting purpose is "Other" then otherPurpose should be filled
+			return true;
+		}, {
+			message: "Please specify the meeting purpose"
+		}),
 	relationshipStatus: z.enum([...RELATIONSHIP_STATUSES.map(item => item.value)] as [string, ...string[]], {
 		required_error: "Please select the relationship status",
 	}),
@@ -63,6 +66,12 @@ const clientProfileSchema = z.object({
 	dietaryRestrictions: z.string().optional(),
 	additionalNotes: z.string().optional(),
 	cuisinePreferences: z.string().optional(),
+}).refine((data) => {
+	// If meeting purpose is "Other", otherPurpose must be provided
+	return data.meetingPurpose !== "Other" || (data.otherPurpose && data.otherPurpose.trim().length > 0);
+}, {
+	message: "Please specify the other meeting purpose",
+	path: ["otherPurpose"],
 });
 
 // Type for form values
@@ -92,6 +101,7 @@ const ClientProfileForm = () => {
 		defaultValues: {
 			clientDesignation: undefined,
 			meetingPurpose: undefined,
+			otherPurpose: "",
 			relationshipStatus: undefined,
 			location: "",
 			meetingDuration: undefined,
@@ -100,6 +110,9 @@ const ClientProfileForm = () => {
 			cuisinePreferences: "",
 		},
 	});
+	
+	// Watch meeting purpose to show/hide other purpose field
+	const meetingPurpose = form.watch("meetingPurpose");
 	
 	// Handle cuisine selection changes
 	const handleCuisineChange = (selected: string[]) => {
@@ -111,8 +124,10 @@ const ClientProfileForm = () => {
 	
 	// Handle form submission
 	const onSubmit = async (data: ClientProfileFormValues) => {
-		try {
-			setIsSubmitting(true);
+        toast.promise(async () => {
+            try {
+                setIsSubmitting(true);
+                
 			
 			// Send client profile to the new API endpoint
 			const response = await fetch("/api/clients", {
@@ -127,17 +142,34 @@ const ClientProfileForm = () => {
 				const errorData = await response.json();
 				throw new Error(errorData.message || "Failed to process client profile");
 			}
+
+            const generatedSearchParams = await response.json();
+
+            setSearchParams(generatedSearchParams.searchParams);
+
+            await searchRestaurants(generatedSearchParams.searchParams);
+
 		} catch (error) {
 			toast.error(error instanceof Error ? error.message : "Failed to generate recommendations");
 			console.error(error);
 		} finally {
 			setIsSubmitting(false);
 		}
+    },
+    {
+        loading: "Building profile...",
+        success: "Recommendations generated successfully",
+        error: "Failed to generate recommendations",
+    }
+		);
 	};
-	
+
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-white rounded-xl shadow-sm p-6 border border-border/50">
+			<form
+				onSubmit={form.handleSubmit(onSubmit)}
+				className="space-y-6 bg-white rounded-xl shadow-sm p-6 border border-border/50"
+			>
                 {/* Client Information Section */}
                 <div className="space-y-4">
                     <div className="flex items-center gap-2">
@@ -244,6 +276,26 @@ const ClientProfileForm = () => {
                                 </FormItem>
                             )}
                         />
+                        
+                        {/* Other Purpose Field - Shown conditionally */}
+                        {meetingPurpose === "Other" && (
+                            <FormField
+                                control={form.control}
+                                name="otherPurpose"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Specify Purpose</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                placeholder="Enter the specific meeting purpose"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        )}
                         
                         {/* Meeting Duration Field */}
                         <FormField
@@ -366,13 +418,13 @@ const ClientProfileForm = () => {
                                     <FormLabel>Additional Notes</FormLabel>
                                     <FormControl>
                                         <Textarea
-                                            placeholder="Any other information that might help find a suitable restaurant"
+                                            placeholder="Any other information about the client or the meeting"
                                             className="resize-none min-h-[80px]"
                                             {...field}
                                         />
                                     </FormControl>
                                     <FormDescription>
-                                        Include any other details that may be helpful
+                                        Include any other details that may be helpful for the search
                                     </FormDescription>
                                     <FormMessage />
                                 </FormItem>
