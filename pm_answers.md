@@ -26,7 +26,7 @@ A database is not necessary for the MVP, but will be useful for storing user pre
 
 Relationship: The front-end sends user inputs via HTTP requests to the back-end, which processes them, fetches external data, and returns structured results for display.
 
-![Architecture Diagram](arch.png)
+![Architecture Diagram](./assets/arch.png)
 
 This separation ensures modularity, enabling future enhancements like caching or additional APIs.
 

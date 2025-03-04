@@ -5,6 +5,11 @@ A web application that helps Bain partners find restaurants for client meetings.
 The frontend interface for the application is deployed on [Vercel](https://vercel.com/), and the backend API is deployed on [Render](https://render.com/) through a Docker container. Please [click here](https://bain-restaurant-recommender.vercel.app/) to view the live application.
 
 > Note that since the backend API is deployed on a free tier of Render, it may take a few minutes to start up when the first request is made.
+>
+
+## Demo
+
+![Screenshot 1](./assets/website1.png)
 
 ## Features
 
