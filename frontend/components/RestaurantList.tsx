@@ -1,4 +1,4 @@
-import type { Restaurant } from "@/store/useRestaurantStore";
+import type { Restaurant } from "@/lib/types";
 import RestaurantCard from "@/components/RestaurantCard";
 import { motion } from "framer-motion";
 
@@ -9,7 +9,7 @@ interface RestaurantListProps {
 const RestaurantList = ({ restaurants }: RestaurantListProps) => {
 	if (!restaurants || restaurants.length === 0) {
 		return (
-			<motion.div 
+			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ duration: 0.4 }}
@@ -28,8 +28,8 @@ const RestaurantList = ({ restaurants }: RestaurantListProps) => {
 			transition: {
 				staggerChildren: 0.08, // Slightly faster stagger for smoother appearance
 				delayChildren: 0.1,
-			}
-		}
+			},
+		},
 	};
 
 	const itemVariants = {
@@ -40,9 +40,9 @@ const RestaurantList = ({ restaurants }: RestaurantListProps) => {
 			transition: {
 				type: "spring",
 				damping: 12,
-				stiffness: 100
-			}
-		}
+				stiffness: 100,
+			},
+		},
 	};
 
 	return (

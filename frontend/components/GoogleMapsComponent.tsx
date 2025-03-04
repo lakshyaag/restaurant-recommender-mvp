@@ -1,4 +1,4 @@
-import type { Restaurant } from "@/store/useRestaurantStore";
+import type { Restaurant } from "@/lib/types";
 import { useState } from "react";
 import { MapPin, Star } from "lucide-react";
 
@@ -21,7 +21,14 @@ export const GoogleMapsComponent = ({
 				title="Google Map"
 				width="100%"
 				height="100%"
-				style={{ border: 0, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
+				style={{
+					border: 0,
+					position: "absolute",
+					top: 0,
+					left: 0,
+					right: 0,
+					bottom: 0,
+				}}
 				loading="lazy"
 				allowFullScreen
 				src={`https://www.google.com/maps/embed/v1/view?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&center=${center.latitude},${center.longitude}&zoom=13`}
@@ -81,12 +88,11 @@ export const GoogleMapsComponent = ({
 										<span className="font-medium">{restaurant.price}</span>
 									</div>
 								)}
-								{restaurant.categories &&
-									restaurant.categories.length > 0 && (
-										<div className="text-xs text-muted-foreground mt-1 truncate">
-											{restaurant.categories.map((c) => c.title).join(", ")}
-										</div>
-									)}
+								{restaurant.categories && restaurant.categories.length > 0 && (
+									<div className="text-xs text-muted-foreground mt-1 truncate">
+										{restaurant.categories.map((c) => c.title).join(", ")}
+									</div>
+								)}
 								<div className="mt-2 text-xs text-primary font-medium">
 									Click for full details
 								</div>

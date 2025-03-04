@@ -1,5 +1,11 @@
 {
 	"name": "frontend",
+	"description": "Bain Restaurant Recommender - Frontend",
+	"author": {
+		"name": "Lakshya Agarwal",
+		"email": "lakshyaag1202@gmail.com",
+		"url": "https://lakshyaag.com"
+	},
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {

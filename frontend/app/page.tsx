@@ -18,7 +18,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
 	// Search type state (traditional or client-focused)
-	const [searchType, setSearchType] = useState<"traditional" | "client">("client");
+	const [searchType, setSearchType] = useState<"traditional" | "client">(
+		"client",
+	);
 
 	// Get restaurant state from Zustand store
 	const {
@@ -64,17 +66,25 @@ export default function Home() {
 							className="animate-fade-up"
 						>
 							{/* Search Type Tabs */}
-							<Tabs 
-								defaultValue="client" 
-								className="mb-6" 
-								onValueChange={(value) => setSearchType(value as "traditional" | "client")}
+							<Tabs
+								defaultValue="client"
+								className="mb-6"
+								onValueChange={(value) =>
+									setSearchType(value as "traditional" | "client")
+								}
 							>
 								<TabsList className="grid w-full grid-cols-2 mb-6">
-									<TabsTrigger value="client" className="flex items-center gap-2">
+									<TabsTrigger
+										value="client"
+										className="flex items-center gap-2"
+									>
 										<User className="h-4 w-4" />
 										<span>Client Profile</span>
 									</TabsTrigger>
-									<TabsTrigger value="traditional" className="flex items-center gap-2">
+									<TabsTrigger
+										value="traditional"
+										className="flex items-center gap-2"
+									>
 										<Search className="h-4 w-4" />
 										<span>Detailed Search</span>
 									</TabsTrigger>
@@ -110,8 +120,8 @@ export default function Home() {
 														Find Your Perfect Dining Spot
 													</h3>
 													<CardDescription className="text-base mb-4">
-														Enter your location and preferences in the search form
-														above to discover amazing restaurants nearby!
+														Enter your location and preferences in the search
+														form above to discover amazing restaurants nearby!
 													</CardDescription>
 												</>
 											) : (
@@ -120,8 +130,9 @@ export default function Home() {
 														Plan the Perfect Client Meeting
 													</h3>
 													<CardDescription className="text-base mb-4">
-														Tell us about your client and meeting purpose, and we'll
-														recommend restaurants tailored to your specific needs.
+														Tell us about your client and meeting purpose, and
+														we'll recommend restaurants tailored to your
+														specific needs.
 													</CardDescription>
 												</>
 											)}

@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import useRestaurantStore from "@/store/useRestaurantStore";
-
 import {
 	Form,
 	FormControl,
@@ -35,27 +34,6 @@ import {
 	stringToCategories,
 } from "@/lib/categories-utils";
 import type { Option } from "@/components/ui/multi-select";
-
-export interface SearchParams {
-	location?: string;
-	latitude?: number;
-	longitude?: number;
-	term?: string;
-	radius?: number;
-	categories?: string;
-	locale?: string;
-	price?: string;
-	open_now?: boolean;
-	open_at?: number;
-	attributes?: string;
-	sort_by?: "best_match" | "rating" | "review_count" | "distance";
-	limit?: number;
-	offset?: number;
-	reservation_date?: string;
-	reservation_time?: string;
-	reservation_covers?: number;
-	view_type?: "list" | "map";
-}
 
 // Create Zod validation schema based on API parameters
 const searchFormSchema = z

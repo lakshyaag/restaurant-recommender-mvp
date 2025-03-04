@@ -1,4 +1,4 @@
-import type { Region, Restaurant } from "@/store/useRestaurantStore";
+import type { Region, Restaurant } from "@/lib/types";
 import { Card } from "@/components/ui/card";
 import { GoogleMapsComponent } from "./GoogleMapsComponent";
 import { useState } from "react";

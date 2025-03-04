@@ -1,41 +1,10 @@
 import { create } from "zustand";
-import type { SearchParams } from "@/components/SearchForm";
-
-export interface Restaurant {
-	id: string;
-	name: string;
-	image_url: string;
-	url: string;
-	review_count: number;
-	rating: number;
-	price?: string;
-	categories: { alias: string; title: string }[];
-	location: {
-		address1: string;
-		city: string;
-		state: string;
-		zip_code: string;
-		display_address: string[];
-	};
-	display_phone: string;
-	distance?: number;
-	is_closed?: boolean;
-	coordinates?: {
-		latitude: number;
-		longitude: number;
-	};
-	photos?: string[] | null;
-	hours?: unknown;
-	attributes?: {
-		business_temp_closed?: boolean | null;
-		menu_url?: string | null;
-		open24_hours?: boolean | null;
-		waitlist_reservation?: boolean | null;
-	} | null;
-	alias?: string;
-	transactions?: string[];
-	phone?: string;
-}
+import type {
+	Region,
+	Restaurant,
+	RestaurantResponse,
+	SearchParams,
+} from "@/lib/types";
 
 interface RestaurantState {
 	// Search state
@@ -51,22 +20,6 @@ interface RestaurantState {
 	setSearchParams: (params: SearchParams) => void;
 	searchRestaurants: (params: SearchParams) => Promise<void>;
 	resetSearch: () => void;
-}
-
-export interface Region {
-	center: {
-		latitude: number;
-		longitude: number;
-	};
-}
-
-interface RestaurantResponse {
-	restaurants: Restaurant[];
-	total: number;
-	region: Region;
-	offset?: number;
-	limit?: number;
-	location?: string;
 }
 
 const defaultSearchParams: SearchParams = {

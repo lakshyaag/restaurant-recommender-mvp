@@ -4,6 +4,11 @@ import { API_URL } from "@/lib/api";
 
 export const maxDuration = 60;
 
+/**
+ * Handles the POST request for searching restaurants.
+ * @param request - The NextRequest object containing the search parameters.
+ * @returns A NextResponse object with the search results or an error message.
+ */
 export async function POST(request: NextRequest) {
 	try {
 		// Get search params from request body
@@ -24,6 +29,7 @@ export async function POST(request: NextRequest) {
 			}
 		}
 
+		// Send GET request to the backend API
 		const response = await fetch(
 			`${API_URL}/restaurants?${queryParams.toString()}`,
 			{

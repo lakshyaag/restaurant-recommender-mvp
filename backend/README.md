@@ -1,4 +1,4 @@
-# Bain Restaurant Recommender Backend
+# Bain Restaurant Recommender - Backend
 
 This is the backend API for the Bain Restaurant Recommender application, built with FastAPI and Python.
 
