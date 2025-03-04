@@ -39,11 +39,6 @@ class Settings(BaseModel):
     DEFAULT_LIMIT: int = 20
     DEFAULT_SORT_BY: str = "best_match"
 
-    # Caching (for future implementation)
-    ENABLE_CACHE: bool = False
-    CACHE_EXPIRY: int = 3600  # 1 hour in seconds
-
-
 # Create settings instance
 settings = Settings()
 

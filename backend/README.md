@@ -5,28 +5,32 @@ This is the backend API for the Bain Restaurant Recommender application, built w
 ## Features
 
 - Restaurant search using Yelp Fusion API
-- Location-based recommendations
-- Filtering by price, categories, open status, etc.
-- Detailed restaurant information
-- Flexible API supporting multiple view types (list and map)
+- Persona generation using LLMs for tailored search
 - Clean architecture with separation of concerns
 
 ## Project Structure
 
-```
+```dir
 backend/
 ├── app/                  # Application core
 │   ├── api/              # API routes/endpoints
-│   │   ├── health.py     # Health check endpoints
-│   │   └── restaurants.py # Restaurant endpoints
+│   │   ├── health.py     # Health check endpoint
+│   │   ├── restaurants.py # Restaurant endpoint
+│   │   └── client_profile.py # Client profile endpoint
 │   ├── models/           # Data models
-│   │   └── restaurants.py # Pydantic models
+│   │   ├── restaurants.py # Restaurant models
+│   │   ├── client_profile.py # Client profile models
+│   │   └── yelp_categories.py # Helper functions for Yelp categories
 │   ├── services/         # Business logic
-│   │   └── yelp.py       # Yelp API interaction
+│   │   ├── yelp.py       # Yelp API interaction
+│   │   └── profile_query.py # Profile query logic (LLM-based)
+│   ├── constants/        # Configuration constants
 │   └── core/             # Core configuration
 │       └── config.py     # Environment and app config
 ├── main.py               # Application entry point
 ├── requirements.txt      # Dependencies
+├── Dockerfile            # Docker configuration
+├── .dockerignore         # Docker ignore file
 └── pyproject.toml        # Project metadata
 ```
 
@@ -34,8 +38,8 @@ backend/
 
 ### Prerequisites
 
-- Python 3.12 or higher
-- Yelp API Key (already in .env file)
+- Python 3.12 or higher (specified in `.python-version`)
+- API keys (see `.env.example` & [here](#environment-variables))
 
 ### Installation
 
@@ -45,28 +49,35 @@ backend/
    cd backend
    ```
 
-2. Install dependencies using uv (already set up):
+2. Install dependencies using uv. Please [install uv](https://docs.astral.sh/uv/getting-started/installation/) if you haven't already:
 
    ```bash
-   uv pip install -e .
+   uv sync
    ```
 
-### Running the API
+3. Start the FastAPI server:
 
-Start the FastAPI server:
+   ```bash
+   uv run main.py
+   ```
+
+The API will be available at `http://localhost:8000`
+
+## Docker Support
+
+To build and run the application using Docker:
 
 ```bash
-python main.py
+docker build -t bain-recommender-backend .
+docker run -p 8000:8000 bain-recommender-backend
 ```
-
-The API will be available at http://localhost:8000
 
 ## API Documentation
 
 Once the server is running, you can access the interactive API documentation at:
 
-- http://localhost:8000/api/docs (Swagger UI)
-- http://localhost:8000/api/redoc (ReDoc)
+- `http://localhost:8000/api/docs` (Swagger UI)
+- `http://localhost:8000/api/redoc` (ReDoc)
 
 ### Available Endpoints
 
@@ -96,6 +107,22 @@ Query Parameters:
 
 Note: Either `location` or both `latitude` and `longitude` must be provided.
 
+#### POST /api/client_profile
+
+Generate a client persona based on the provided client and meeting details.
+
+Body Parameters:
+
+- `clientDesignation`: The client's designation or role
+- `meetingPurpose`: Purpose of the meeting
+- `otherPurpose`: Specific purpose of the meeting, if applicable
+- `relationshipStatus`: Status of the client relationship
+- `location`: Meeting location (e.g. "Toronto, ON")
+- `meetingDuration`: Duration of the meeting (e.g. "1 hour")
+- `dietaryRestrictions`: Any dietary restrictions
+- `additionalNotes`: Additional notes about the client or meeting
+- `cuisinePreferences`: Preferred cuisine types
+
 ## Development
 
 The application is structured with clean architecture principles:
@@ -104,8 +131,17 @@ The application is structured with clean architecture principles:
 - **Service Layer**: Contains business logic and external API interactions
 - **Model Layer**: Defines data structures using Pydantic
 
+## External APIs
+
+- [Yelp Fusion API](https://www.yelp.com/developers/documentation/v3) for restaurant search
+- [OpenAI API](https://platform.openai.com/docs/api-reference) for LLM-based persona generation
+- [LangSmith API](https://smith.langchain.com/docs/api-reference/introduction) for tracing and monitoring LLM calls
+
 ## Environment Variables
 
 The application requires the following environment variables in a `.env` file:
 
-- `YELP_API_KEY`: API key for Yelp Fusion API (already set up)
+- `YELP_API_KEY`: API key for Yelp Fusion API
+- `OPENAI_API_KEY`: API key for OpenAI API
+- `WHITELISTED_CORS_ORIGINS`: Whitelisted CORS origins (e.g. `http://localhost:3000`, `<deployment-url>`)
+- `LANGSMITH_API_KEY`: API key for LangSmith API

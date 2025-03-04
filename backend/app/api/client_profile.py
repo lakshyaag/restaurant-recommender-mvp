@@ -12,6 +12,9 @@ router = APIRouter()
 async def create_client_profile(
     client_profile_params: ClientProfileParams,
 ) -> ClientProfileRestaurantSearchParams:
+    """
+    Generate a client persona based on the provided client and meeting details.
+    """
     try:
         response = generate_restaurant_search_params(client_profile_params)
 

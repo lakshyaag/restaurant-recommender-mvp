@@ -73,7 +73,7 @@ async def search_restaurants(
     This endpoint provides a flexible search interface with many optional parameters for filtering and sorting
     restaurant results. It requires either a location string or latitude/longitude coordinates.
 
-    Returns either a detailed list of restaurants or a simplified map view based on the view_type parameter.
+    Returns a detailed list of restaurants
     """
     # Validate that we have either location or lat/long
     if not location and (latitude is None or longitude is None):

@@ -77,14 +77,9 @@ class YelpService:
             )
 
             # For debugging
-            self._save_response_to_file(data, "yelp_response.json")
+            self._save_response_to_file(data, "app/constants/yelp_response.json")
 
             return data
-
-            # Load the response from the file
-            # with open("yelp_response.json", "r") as f:
-            #     data = json.load(f)
-            # return data
 
         except requests.exceptions.RequestException as e:
             logger.error(f"Yelp API request failed: {str(e)}")
