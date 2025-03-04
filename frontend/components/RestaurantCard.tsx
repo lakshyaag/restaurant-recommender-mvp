@@ -26,9 +26,9 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
 						key={`${i}-${rating}`}
 						className={`h-3 w-3 ${
 							i < fullStars
-								? "text-yellow-400 fill-yellow-400"
+								? "text-red-400 fill-red-400"
 								: i === fullStars && hasHalfStar
-									? "text-yellow-400 fill-yellow-400 opacity-50"
+									? "text-red-400 fill-red-400 opacity-50"
 									: "text-gray-300"
 						}`}
 					/>

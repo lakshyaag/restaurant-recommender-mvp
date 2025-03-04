@@ -434,7 +434,11 @@ const SearchForm = () => {
 					)}
 				</div>
 
-				<Button type="submit" disabled={isLoading}>
+				<Button
+					type="submit"
+					disabled={isLoading}
+					className="bg-red-600 hover:bg-red-700 transition-colors duration-300 w-full"
+				>
 					{isLoading ? "Searching..." : "Search Restaurants"}
 				</Button>
 			</form>

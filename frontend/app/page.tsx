@@ -65,7 +65,7 @@ export default function Home() {
 							transition={{ duration: 0.6, ease: "easeOut" }}
 							className="animate-fade-up"
 						>
-							{/* Search Type Tabs */}
+							{/* Search Type Tabs */}{" "}
 							<Tabs
 								defaultValue="client"
 								className="mb-6"
@@ -73,26 +73,26 @@ export default function Home() {
 									setSearchType(value as "traditional" | "client")
 								}
 							>
-								<TabsList className="grid w-full grid-cols-2 mb-6">
+								<TabsList className="grid w-full grid-cols-2 mb-6 bg-red-100">
 									<TabsTrigger
 										value="client"
-										className="flex items-center gap-2"
+										className="flex items-center gap-2 data-[state=active]:bg-red-600 data-[state=active]:text-white"
 									>
 										<User className="h-4 w-4" />
 										<span>Client Profile</span>
 									</TabsTrigger>
 									<TabsTrigger
 										value="traditional"
-										className="flex items-center gap-2"
+										className="flex items-center gap-2 data-[state=active]:bg-red-600 data-[state=active]:text-white"
 									>
 										<Search className="h-4 w-4" />
 										<span>Detailed Search</span>
 									</TabsTrigger>
 								</TabsList>
-								<TabsContent value="client">
+								<TabsContent value="client" className="border-red-100">
 									<ClientProfileForm />
 								</TabsContent>
-								<TabsContent value="traditional">
+								<TabsContent value="traditional" className="border-red-100">
 									<SearchForm />
 								</TabsContent>
 							</Tabs>

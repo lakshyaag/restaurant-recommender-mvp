@@ -39,9 +39,9 @@ const RestaurantDetailModal = ({
 						key={`${i}-${rating}`}
 						className={`h-4 w-4 ${
 							i < fullStars
-								? "text-yellow-400 fill-yellow-400"
+								? "text-red-400 fill-red-400"
 								: i === fullStars && hasHalfStar
-									? "text-yellow-400 fill-yellow-400 opacity-50"
+									? "text-red-400 fill-red-400 opacity-50"
 									: "text-gray-300"
 						}`}
 					/>

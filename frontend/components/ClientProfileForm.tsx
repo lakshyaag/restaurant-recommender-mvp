@@ -481,7 +481,7 @@ const ClientProfileForm = () => {
 					<Button
 						type="submit"
 						disabled={isLoading || isSubmitting}
-						className="w-full"
+						className="w-full bg-red-600 hover:bg-red-700 transition-colors duration-300"
 					>
 						{isLoading || isSubmitting
 							? "Processing..."
