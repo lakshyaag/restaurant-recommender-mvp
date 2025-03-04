@@ -2,6 +2,10 @@
 
 A web application that helps Bain partners find restaurants for client meetings. This tool allows users to search for restaurants in different locations and provides detailed information to help make informed decisions.
 
+The frontend interface for the application is deployed on [Vercel](https://vercel.com/), and the backend API is deployed on [Render](https://render.com/) through a Docker container. Please [click here](https://bain-restaurant-recommender.vercel.app/) to view the live application.
+
+> Note that since the backend API is deployed on a free tier of Render, it may take a few minutes to start up when the first request is made.
+
 ## Features
 
 - **Advanced Search Options**: Traditional search by location/filters or client-focused search using LLM-generated personas

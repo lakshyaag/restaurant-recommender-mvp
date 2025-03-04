@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
-import type { SearchParams } from "@/components/SearchForm";
+import type { SearchParams } from "@/lib/types";
 import { API_URL } from "@/lib/api";
 
 export const maxDuration = 60;
