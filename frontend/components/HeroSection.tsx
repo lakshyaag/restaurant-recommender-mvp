@@ -8,7 +8,7 @@ export const HeroSection = () => {
 					className="mb-4 animate-fade-up"
 					style={{ animationDelay: "0.1s" }}
 				>
-					<span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+					<span className="inline-block px-3 py-1 rounded-full bg-red-100 text-red-600 text-sm font-medium">
 						Bain Restaurant Recommender
 					</span>
 				</div>
